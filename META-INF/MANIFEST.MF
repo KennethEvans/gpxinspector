@@ -14,7 +14,10 @@ Require-Bundle: org.eclipse.core.resources,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
-Export-Package: net.kenevans.gpxinspector.converters,
+Export-Package: net.kenevans.gpx10,
+ net.kenevans.gpxcombined,
+ net.kenevans.gpxcombined.parser,
+ net.kenevans.gpxinspector.converters,
  net.kenevans.gpxinspector.handlers,
  net.kenevans.gpxinspector.kml,
  net.kenevans.gpxinspector.model,
@@ -24,7 +27,9 @@ Export-Package: net.kenevans.gpxinspector.converters,
  net.kenevans.gpxinspector.ui,
  net.kenevans.gpxinspector.utils,
  net.kenevans.gpxinspector.utils.find,
- net.kenevans.gpxinspector.views
+ net.kenevans.gpxinspector.views,
+ net.kenevans.gpxtrackpointextensionsv1,
+ net.kenevans.gpxtrackpointextensionsv1.parser
 Eclipse-BundleShape: dir
 Bundle-ClassPath: JavaAPIforKml.jar,
  commons-io-2.0.1.jar,
