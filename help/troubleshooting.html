@@ -12,11 +12,11 @@
 <p>1. Add -Djava.endorsed.dirs=&lt;path to net.kenevans.jaxb&gt; when the JRE is started. This overrides the JRE version with the net.kenevans.jaxb version. The deployed version of GPX Inspector sets -Djava.endorsed.dirs=./plugins/net.kenevans.jaxb_2.2.1 (see the lines below). This works as long as GPX Inspector is started from its own directory. If GPX Inspector is started from a different directory or is used as a plug-in in Eclipse, this will not work. You can explicitly set the full path to the location of net.kenevans.jaxb by editing GpxInspector.ini in the GPX Inspector directory or in the appropriate eclipse.ini in the Eclipse directory if used in an Eclipse workspace. The object to keep in mind is to set java.endorsed.dirs to point to net.kenevans.jaxb (or some other valid location of the JAXB JAR files) when the JRE is started.</p>
 <p>Note that the deployed GpxInspector.ini should initially contain the lines:</p>
 <pre>-vmargs
--Djava.endorsed.dirs=./plugins/net.kenevans.jaxb_2.2.1
+-Djava.endorsed.dirs=./plugins/net.kenevans.gpxinspector_&lt;version&gt;
 </pre>
 <p>If you want it to work when GPX Inspector is started from other than in its own directory, then replace the dot with the path to where it is installed, e.g.:</p>
 <pre>
--Djava.endorsed.dirs=C:/Deploy/GPX Inspector/plugins/net.kenevans.jaxb_2.2.1
+-Djava.endorsed.dirs=C:/Deploy/GPX Inspector/plugins/net.kenevans.gpxinspector_&lt;version&gt;
 </pre>
 <p>Spaces in the path will be handled all right. Do not use quotes around the path, and do use forward slashes.</p>
 <p> For example, if use set a file association for .gpx files to run GPX Inspector, then when you double click a .gpx file, it will run GPX Inspector, but from the directory of the file. Thus for the file association to work, you must use the full path as above. </p>

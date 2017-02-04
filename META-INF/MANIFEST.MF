@@ -25,7 +25,8 @@ Export-Package: net.kenevans.gpxinspector.converters,
  net.kenevans.gpxinspector.utils,
  net.kenevans.gpxinspector.utils.find,
  net.kenevans.gpxinspector.views
+Eclipse-BundleShape: dir
 Bundle-ClassPath: JavaAPIforKml.jar,
  commons-io-2.0.1.jar,
- jaxb-api.jar,
+ jaxb-impl.jar,
  .

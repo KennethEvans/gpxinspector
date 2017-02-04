@@ -14,7 +14,7 @@
    </configIni>
 
    <launcherArgs>
-      <vmArgs>-Djava.endorsed.dirs=./plugins/net.kenevans.jaxb_2.2.1
+      <vmArgs>-Djava.endorsed.dirs=./plugins/net.kenevans.gpxinspector_1.1.1.0
       </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
@@ -210,5 +210,12 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       <plugin id="org.w3c.dom.svg"/>
    </plugins>
 
+
+   <preferencesInfo>
+      <targetfile overwrite="false"/>
+   </preferencesInfo>
+
+   <cssInfo>
+   </cssInfo>
 
 </product>
