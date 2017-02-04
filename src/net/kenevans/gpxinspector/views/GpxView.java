@@ -70,8 +70,6 @@ import org.eclipse.ui.handlers.IHandlerService;
 import org.eclipse.ui.part.ViewPart;
 import org.osgi.framework.Bundle;
 
-import net.kenevans.core.utils.SWTUtils;
-import net.kenevans.core.utils.ScrolledTextDialog;
 import net.kenevans.gpxinspector.converters.ConverterDescriptor;
 import net.kenevans.gpxinspector.model.GpxFileModel;
 import net.kenevans.gpxinspector.model.GpxFileSetModel;
@@ -89,6 +87,8 @@ import net.kenevans.gpxinspector.ui.GpxLabelProvider;
 import net.kenevans.gpxinspector.ui.LocalSelection;
 import net.kenevans.gpxinspector.ui.SaveFilesDialog;
 import net.kenevans.gpxinspector.utils.GpxUtils;
+import net.kenevans.gpxinspector.utils.SWTUtils;
+import net.kenevans.gpxinspector.utils.ScrolledTextDialog;
 import net.kenevans.gpxinspector.utils.find.FindNear;
 import net.kenevans.gpxinspector.utils.find.FindNear.Mode;
 import net.kenevans.gpxinspector.utils.find.FindNearOptions;

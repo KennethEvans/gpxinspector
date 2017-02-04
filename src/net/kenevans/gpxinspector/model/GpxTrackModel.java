@@ -3,13 +3,13 @@ package net.kenevans.gpxinspector.model;
 import java.util.LinkedList;
 import java.util.List;
 
-import net.kenevans.core.utils.SWTUtils;
+import org.eclipse.swt.widgets.Display;
+
+import net.kenevans.gpxinspector.ui.TrkInfoDialog;
+import net.kenevans.gpxinspector.utils.SWTUtils;
 import net.kenevans.gpxtrackpointextensionsv1.TrkType;
 import net.kenevans.gpxtrackpointextensionsv1.TrksegType;
 import net.kenevans.gpxtrackpointextensionsv1.parser.GPXClone;
-import net.kenevans.gpxinspector.ui.TrkInfoDialog;
-
-import org.eclipse.swt.widgets.Display;
 
 /*
  * Created on Aug 22, 2010
@@ -195,9 +195,8 @@ public class GpxTrackModel extends GpxModel implements IGpxElementConstants
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * net.kenevans.gpxinspector.model.GpxModel#setParent(net.kenevans.gpxinspector
-     * .model.GpxModel)
+     * @see net.kenevans.gpxinspector.model.GpxModel#setParent(net.kenevans.
+     * gpxinspector .model.GpxModel)
      */
     @Override
     public void setParent(GpxModel parent) {

@@ -327,8 +327,8 @@ public class GpxUtils
         if(xgcal == null) {
             return NOT_AVAILABLE;
         }
-        GregorianCalendar gcal = xgcal.toGregorianCalendar(
-            TimeZone.getTimeZone("GMT"), null, null);
+        GregorianCalendar gcal = xgcal
+            .toGregorianCalendar(TimeZone.getTimeZone("GMT"), null, null);
         // Get the date
         Date date = gcal.getTime();
         // Make a new local GregorianCalendar with this date
@@ -355,8 +355,8 @@ public class GpxUtils
         if(xgcal == null) {
             return NOT_AVAILABLE;
         }
-        GregorianCalendar gcal = xgcal.toGregorianCalendar(
-            TimeZone.getTimeZone("GMT"), null, null);
+        GregorianCalendar gcal = xgcal
+            .toGregorianCalendar(TimeZone.getTimeZone("GMT"), null, null);
         // Get the date
         Date date = gcal.getTime();
         SimpleDateFormat formatter = new SimpleDateFormat(
@@ -382,8 +382,8 @@ public class GpxUtils
         if(xgcal == null) {
             return NOT_AVAILABLE;
         }
-        GregorianCalendar gcal = xgcal.toGregorianCalendar(
-            TimeZone.getTimeZone("GMT"), null, null);
+        GregorianCalendar gcal = xgcal
+            .toGregorianCalendar(TimeZone.getTimeZone("GMT"), null, null);
         // Get the date
         Date date = gcal.getTime();
         return date.toString();

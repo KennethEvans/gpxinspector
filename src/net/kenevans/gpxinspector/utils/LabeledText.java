@@ -6,8 +6,6 @@ import java.math.BigInteger;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import net.kenevans.core.utils.SWTUtils;
-
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Point;
@@ -55,8 +53,7 @@ public class LabeledText
         GridDataFactory.fillDefaults().applyTo(label);
 
         text = new Text(composite, SWT.NONE);
-        GridDataFactory
-            .fillDefaults()
+        GridDataFactory.fillDefaults()
             .hint(
                 new Point(SWTUtils.getTextWidth(text, textWidth), SWT.DEFAULT))
             .align(SWT.FILL, SWT.FILL).grab(true, true).applyTo(text);

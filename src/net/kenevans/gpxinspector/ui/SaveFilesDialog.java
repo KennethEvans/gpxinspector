@@ -4,12 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.kenevans.core.utils.SWTUtils;
-import net.kenevans.gpxinspector.converters.ConverterDescriptor;
-import net.kenevans.gpxinspector.model.GpxFileModel;
-import net.kenevans.gpxinspector.model.GpxFileSetModel;
-import net.kenevans.gpxinspector.plugin.Activator;
-
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -27,6 +21,12 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
+
+import net.kenevans.gpxinspector.converters.ConverterDescriptor;
+import net.kenevans.gpxinspector.model.GpxFileModel;
+import net.kenevans.gpxinspector.model.GpxFileSetModel;
+import net.kenevans.gpxinspector.plugin.Activator;
+import net.kenevans.gpxinspector.utils.SWTUtils;
 
 /*
  * Created on Aug 23, 2010
@@ -58,7 +58,8 @@ public class SaveFilesDialog extends Dialog
      * @param parent The parent of this dialog.
      * @param style Style passed to the parent.
      */
-    public SaveFilesDialog(Shell parent, int style, GpxFileSetModel fileSetModel) {
+    public SaveFilesDialog(Shell parent, int style,
+        GpxFileSetModel fileSetModel) {
         super(parent, style);
         this.fileSetModel = fileSetModel;
     }
@@ -138,8 +139,8 @@ public class SaveFilesDialog extends Dialog
         GridDataFactory.fillDefaults().align(SWT.END, SWT.FILL)
             .grab(true, false).span(5, 1).applyTo(saveAsButton);
         saveAsButton.setText("Use Save As");
-        saveAsButton.setToolTipText("Whether to use Save or Save As with a "
-            + "FileSelectionDialog.");
+        saveAsButton.setToolTipText(
+            "Whether to use Save or Save As with a " + "FileSelectionDialog.");
         saveAsButton.setSelection(false);
 
         Button button = new Button(composite, SWT.PUSH);
@@ -216,8 +217,8 @@ public class SaveFilesDialog extends Dialog
         GridDataFactory.fillDefaults().grab(true, true).applyTo(box);
 
         // Name
-        table = new Table(box, SWT.CHECK | SWT.BORDER | SWT.V_SCROLL
-            | SWT.H_SCROLL);
+        table = new Table(box,
+            SWT.CHECK | SWT.BORDER | SWT.V_SCROLL | SWT.H_SCROLL);
         GridDataFactory.fillDefaults().grab(true, true).applyTo(table);
         table.setToolTipText("Files to save.");
         table.setHeaderVisible(false);
@@ -348,8 +349,8 @@ public class SaveFilesDialog extends Dialog
             File file = new File(selectedPath);
             boolean doIt = true;
             if(file.exists()) {
-                Boolean res = SWTUtils.confirmMsg("File exists: "
-                    + file.getPath() + "\nOK to overwrite?");
+                Boolean res = SWTUtils.confirmMsg(
+                    "File exists: " + file.getPath() + "\nOK to overwrite?");
                 if(!res) {
                     doIt = false;
                 }

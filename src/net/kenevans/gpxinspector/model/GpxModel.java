@@ -4,7 +4,7 @@ import java.util.EventListener;
 
 import javax.swing.event.EventListenerList;
 
-import net.kenevans.core.utils.SWTUtils;
+import net.kenevans.gpxinspector.utils.SWTUtils;
 
 /*
  * Created on Aug 22, 2010
@@ -103,7 +103,8 @@ public abstract class GpxModel implements Comparable<GpxModel>
      * @param oldValue
      * @param newValue
      */
-    public void fireGpxModelEvent(String name, Object oldValue, Object newValue) {
+    public void fireGpxModelEvent(String name, Object oldValue,
+        Object newValue) {
         EventListener[] listeners = listenerList
             .getListeners(GpxModelListener.class);
         for(EventListener listener : listeners) {

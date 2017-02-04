@@ -5,13 +5,11 @@ Bundle-SymbolicName: net.kenevans.gpxinspector;singleton:=true
 Bundle-Version: 1.1.0.0
 Bundle-Activator: net.kenevans.gpxinspector.plugin.Activator
 Bundle-Vendor: kenevans.net
-Require-Bundle: org.eclipse.help.ui,
+Require-Bundle: org.eclipse.core.resources,
+ org.eclipse.core.filesystem,
+ org.eclipse.ui.ide,
+ org.eclipse.help.ui,
  org.eclipse.help.webapp,
- net.kenevans.gpx,
- net.kenevans.jak;bundle-version="1.0.0",
- net.kenevans.jaxb;bundle-version="2.2.1",
- net.kenevans.commons-io;bundle-version="2.0.1",
- net.kenevans.core.utils,
  org.eclipse.equinox.ds
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
@@ -27,3 +25,7 @@ Export-Package: net.kenevans.gpxinspector.converters,
  net.kenevans.gpxinspector.utils,
  net.kenevans.gpxinspector.utils.find,
  net.kenevans.gpxinspector.views
+Bundle-ClassPath: JavaAPIforKml.jar,
+ commons-io-2.0.1.jar,
+ jaxb-api.jar,
+ .

@@ -3,21 +3,21 @@ package net.kenevans.gpxinspector.model;
 import java.util.LinkedList;
 import java.util.List;
 
-import net.kenevans.core.utils.SWTUtils;
+import org.eclipse.swt.widgets.Display;
+
+import net.kenevans.gpxinspector.ui.TrksegInfoDialog;
+import net.kenevans.gpxinspector.utils.SWTUtils;
 import net.kenevans.gpxtrackpointextensionsv1.TrksegType;
 import net.kenevans.gpxtrackpointextensionsv1.WptType;
 import net.kenevans.gpxtrackpointextensionsv1.parser.GPXClone;
-import net.kenevans.gpxinspector.ui.TrksegInfoDialog;
-
-import org.eclipse.swt.widgets.Display;
 
 /*
  * Created on Dec 07, 2010
  * By Kenneth Evans, Jr.
  */
 
-public class GpxTrackSegmentModel extends GpxModel implements
-    IGpxElementConstants
+public class GpxTrackSegmentModel extends GpxModel
+    implements IGpxElementConstants
 {
     private TrksegType trackseg;
     private LinkedList<GpxWaypointModel> waypointModels;
@@ -59,8 +59,8 @@ public class GpxTrackSegmentModel extends GpxModel implements
             if(fileModel != null) {
                 fileModel.synchronizeGpx();
             }
-            dialog = new TrksegInfoDialog(
-                Display.getDefault().getActiveShell(), this);
+            dialog = new TrksegInfoDialog(Display.getDefault().getActiveShell(),
+                this);
             success = dialog.open();
             if(success) {
                 // This also sets dirty
@@ -209,9 +209,8 @@ public class GpxTrackSegmentModel extends GpxModel implements
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * net.kenevans.gpxinspector.model.GpxModel#setParent(net.kenevans.gpxinspector
-     * .model.GpxModel)
+     * @see net.kenevans.gpxinspector.model.GpxModel#setParent(net.kenevans.
+     * gpxinspector .model.GpxModel)
      */
     @Override
     public void setParent(GpxModel parent) {

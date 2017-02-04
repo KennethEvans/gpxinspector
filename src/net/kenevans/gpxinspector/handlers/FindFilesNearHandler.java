@@ -1,22 +1,16 @@
 package net.kenevans.gpxinspector.handlers;
 
-/*
- * Created on Aug 23, 2010
- * By Kenneth Evans, Jr.
- */
-
-import net.kenevans.core.utils.SWTUtils;
-import net.kenevans.core.utils.Utils;
-import net.kenevans.gpxinspector.utils.find.FindNearDialog;
-import net.kenevans.gpxinspector.utils.find.FindNearOptions;
-import net.kenevans.gpxinspector.views.GpxView;
-
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
+
+import net.kenevans.gpxinspector.utils.SWTUtils;
+import net.kenevans.gpxinspector.utils.find.FindNearDialog;
+import net.kenevans.gpxinspector.utils.find.FindNearOptions;
+import net.kenevans.gpxinspector.views.GpxView;
 
 public class FindFilesNearHandler extends AbstractHandler
 {
@@ -25,23 +19,22 @@ public class FindFilesNearHandler extends AbstractHandler
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.eclipse.core.commands.AbstractHandler#execute(org.eclipse.core.commands
-     * .ExecutionEvent)
+     * @see org.eclipse.core.commands.AbstractHandler#execute(org.eclipse.core.
+     * commands .ExecutionEvent)
      */
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
         IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindow(event);
         if(window == null) {
-            Utils.errMsg("Cannot determine the workbench window");
+            SWTUtils.errMsg("Cannot determine the workbench window");
             return null;
         }
 
         // Find the GpxView
         GpxView view = null;
         try {
-            view = (GpxView)window.getActivePage().findView(
-                "net.kenevans.gpxinspector.gpxView");
+            view = (GpxView)window.getActivePage()
+                .findView("net.kenevans.gpxinspector.gpxView");
             if(view == null) {
                 SWTUtils.errMsgAsync("Cannot find GpxView");
                 return null;

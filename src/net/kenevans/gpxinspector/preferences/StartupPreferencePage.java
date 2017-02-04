@@ -2,11 +2,6 @@ package net.kenevans.gpxinspector.preferences;
 
 import java.io.File;
 
-import net.kenevans.core.utils.SWTUtils;
-import net.kenevans.core.utils.TreeWithAddRemoveUpDown;
-import net.kenevans.core.utils.Utils;
-import net.kenevans.gpxinspector.plugin.Activator;
-
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -20,6 +15,10 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
+import net.kenevans.gpxinspector.plugin.Activator;
+import net.kenevans.gpxinspector.utils.SWTUtils;
+import net.kenevans.gpxinspector.utils.TreeWithAddRemoveUpDown;
+
 /**
  * This class is a Python preferences pages. At this time, the only preference
  * available is dedicated to a prefered directory where user can save python
@@ -28,8 +27,8 @@ import org.eclipse.ui.IWorkbenchPreferencePage;
  * @author SUCHET
  * 
  */
-public class StartupPreferencePage extends PreferencePage implements
-    IWorkbenchPreferencePage, IPreferenceConstants
+public class StartupPreferencePage extends PreferencePage
+    implements IWorkbenchPreferencePage, IPreferenceConstants
 {
     private TreeWithAddRemoveUpDown tree;
     private BooleanFieldEditor useStartupFilesEditor;
@@ -94,8 +93,8 @@ public class StartupPreferencePage extends PreferencePage implements
         useStartupFilesEditor.load();
 
         text = new Text(composite, SWT.MULTI | SWT.WRAP | SWT.READ_ONLY);
-        text.setText("Note: These settings will be applied at the next "
-            + "startup.");
+        text.setText(
+            "Note: These settings will be applied at the next " + "startup.");
         GridDataFactory.fillDefaults().grab(false, false).span(3, 1)
             .hint(TEXT_WIDTH_MED, SWT.DEFAULT).applyTo(text);
 
@@ -145,11 +144,11 @@ public class StartupPreferencePage extends PreferencePage implements
                     continue;
                 }
                 file = new File(item);
-                ext = Utils.getExtension(file);
+                ext = SWTUtils.getExtension(file);
                 if(ext == null | !ext.toLowerCase().equals("gpx")) {
-                    boolean res = SWTUtils.confirmMsg(file.getPath()
-                        + "\ndoes not have a .gpx extension!\n"
-                        + "OK to continue?");
+                    boolean res = SWTUtils.confirmMsg(
+                        file.getPath() + "\ndoes not have a .gpx extension!\n"
+                            + "OK to continue?");
                     if(!res) {
                         return false;
                     }

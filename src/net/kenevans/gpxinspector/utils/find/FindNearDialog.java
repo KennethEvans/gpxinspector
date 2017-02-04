@@ -1,9 +1,5 @@
 package net.kenevans.gpxinspector.utils.find;
 
-import net.kenevans.core.utils.SWTUtils;
-import net.kenevans.gpxinspector.kml.KmlUtils;
-import net.kenevans.gpxinspector.utils.find.FindNearOptions.Units;
-
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
@@ -32,6 +28,10 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+
+import net.kenevans.gpxinspector.kml.KmlUtils;
+import net.kenevans.gpxinspector.utils.SWTUtils;
+import net.kenevans.gpxinspector.utils.find.FindNearOptions.Units;
 
 /*
  * Created on Aug 23, 2010
@@ -179,12 +179,11 @@ public class FindNearDialog extends Dialog
         GridDataFactory.fillDefaults().applyTo(label);
 
         directoryText = new Text(composite, SWT.NONE);
-        GridDataFactory
-            .fillDefaults()
+        GridDataFactory.fillDefaults()
             .hint(
                 new Point(SWTUtils.getTextWidth(directoryText, TEXT_COLS_LONG),
-                    SWT.DEFAULT)).align(SWT.FILL, SWT.FILL).grab(true, true)
-            .applyTo(directoryText);
+                    SWT.DEFAULT))
+            .align(SWT.FILL, SWT.FILL).grab(true, true).applyTo(directoryText);
         directoryText.setToolTipText("Full path for search directory.");
         directoryText.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent ex) {
@@ -202,8 +201,8 @@ public class FindNearDialog extends Dialog
             }
         });
         // Create a drop target
-        DropTarget dropTarget = new DropTarget(directoryText, DND.DROP_COPY
-            | DND.DROP_DEFAULT);
+        DropTarget dropTarget = new DropTarget(directoryText,
+            DND.DROP_COPY | DND.DROP_DEFAULT);
         dropTarget.setTransfer(new Transfer[] {TextTransfer.getInstance(),
             FileTransfer.getInstance()});
         dropTarget.addDropListener(new DropTargetAdapter() {
@@ -233,12 +232,12 @@ public class FindNearDialog extends Dialog
              */
             public void drop(DropTargetEvent event) {
                 // See if it is selectionText
-                if(TextTransfer.getInstance().isSupportedType(
-                    event.currentDataType)) {
+                if(TextTransfer.getInstance()
+                    .isSupportedType(event.currentDataType)) {
                     String fileName = (String)event.data;
                     directoryText.setText(fileName);
-                } else if(FileTransfer.getInstance().isSupportedType(
-                    event.currentDataType)) {
+                } else if(FileTransfer.getInstance()
+                    .isSupportedType(event.currentDataType)) {
                     String[] fileNames = (String[])event.data;
                     directoryText.setText(fileNames[0]);
                 }
@@ -298,13 +297,11 @@ public class FindNearDialog extends Dialog
             .applyTo(label);
 
         latText = new Text(composite, SWT.NONE);
-        GridDataFactory
-            .fillDefaults()
-            .align(SWT.FILL, SWT.CENTER)
+        GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER)
             .grab(true, true)
-            .hint(
-                new Point(SWTUtils.getTextWidth(latText, TEXT_COLS_SHORT),
-                    SWT.DEFAULT)).applyTo(latText);
+            .hint(new Point(SWTUtils.getTextWidth(latText, TEXT_COLS_SHORT),
+                SWT.DEFAULT))
+            .applyTo(latText);
         latText.setToolTipText("Center latitude for search.");
         latText.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent ex) {
@@ -330,13 +327,11 @@ public class FindNearDialog extends Dialog
             .applyTo(label);
 
         lonText = new Text(composite, SWT.NONE);
-        GridDataFactory
-            .fillDefaults()
-            .align(SWT.FILL, SWT.CENTER)
+        GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER)
             .grab(true, true)
-            .hint(
-                new Point(SWTUtils.getTextWidth(lonText, TEXT_COLS_SHORT),
-                    SWT.DEFAULT)).applyTo(lonText);
+            .hint(new Point(SWTUtils.getTextWidth(lonText, TEXT_COLS_SHORT),
+                SWT.DEFAULT))
+            .applyTo(lonText);
         lonText.setToolTipText("Center latitude for search.");
         lonText.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent ex) {
@@ -362,13 +357,11 @@ public class FindNearDialog extends Dialog
             .applyTo(label);
 
         radiusText = new Text(composite, SWT.NONE);
-        GridDataFactory
-            .fillDefaults()
-            .align(SWT.FILL, SWT.CENTER)
+        GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER)
             .grab(true, true)
-            .hint(
-                new Point(SWTUtils.getTextWidth(radiusText, TEXT_COLS_SHORT),
-                    SWT.DEFAULT)).applyTo(radiusText);
+            .hint(new Point(SWTUtils.getTextWidth(radiusText, TEXT_COLS_SHORT),
+                SWT.DEFAULT))
+            .applyTo(radiusText);
         radiusText.setToolTipText("Radius of the search.");
         radiusText.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent ex) {
@@ -413,15 +406,13 @@ public class FindNearDialog extends Dialog
             .applyTo(label);
 
         filterText = new Text(composite, SWT.NONE);
-        GridDataFactory
-            .fillDefaults()
-            .align(SWT.FILL, SWT.CENTER)
+        GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER)
             .grab(true, true)
-            .hint(
-                new Point(SWTUtils.getTextWidth(filterText, TEXT_COLS_LONG),
-                    SWT.DEFAULT)).applyTo(filterText);
-        filterText
-            .setToolTipText("Filter the files for the search using '?' and '*'.\n"
+            .hint(new Point(SWTUtils.getTextWidth(filterText, TEXT_COLS_LONG),
+                SWT.DEFAULT))
+            .applyTo(filterText);
+        filterText.setToolTipText(
+            "Filter the files for the search using '?' and '*'.\n"
                 + "Note that it only searches files with extensions it\n"
                 + "knows how to convert in any case.  Blank is no filter.");
         filterText.addKeyListener(new KeyAdapter() {
@@ -520,8 +511,8 @@ public class FindNearDialog extends Dialog
                 String lat = latText.getText();
                 String lon = lonText.getText();
                 String ele = "0";
-                KmlUtils.copyPlacemarkToClipboard(FIND_DOCUMENT_NAME, name,
-                    lat, lon, ele);
+                KmlUtils.copyPlacemarkToClipboard(FIND_DOCUMENT_NAME, name, lat,
+                    lon, ele);
             }
         });
 
@@ -546,7 +537,8 @@ public class FindNearDialog extends Dialog
                     radius = Double.NaN;
                 }
                 int index = unitsCombo.getSelectionIndex();
-                if(index >= 0 && index < FindNearOptions.getUnitTypes().length) {
+                if(index >= 0
+                    && index < FindNearOptions.getUnitTypes().length) {
                     units = FindNearOptions.getUnitTypes()[index];
                 }
                 // Convert to meters

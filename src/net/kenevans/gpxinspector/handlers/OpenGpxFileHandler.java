@@ -1,13 +1,13 @@
 package net.kenevans.gpxinspector.handlers;
 
-import net.kenevans.core.utils.SWTUtils;
-import net.kenevans.gpxinspector.views.GpxView;
-
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
+
+import net.kenevans.gpxinspector.utils.SWTUtils;
+import net.kenevans.gpxinspector.views.GpxView;
 
 /*
  * Created on Sep 2, 2010

@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
-import net.kenevans.core.utils.SWTUtils;
+import net.kenevans.gpxinspector.utils.SWTUtils;
 
 /*
  * Created on Aug 22, 2010
@@ -219,9 +219,8 @@ public class GpxFileSetModel extends GpxModel
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * net.kenevans.gpxinspector.model.GpxModel#setParent(net.kenevans.gpxinspector
-     * .model.GpxModel)
+     * @see net.kenevans.gpxinspector.model.GpxModel#setParent(net.kenevans.
+     * gpxinspector .model.GpxModel)
      */
     @Override
     public void setParent(GpxModel parent) {

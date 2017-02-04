@@ -2,17 +2,6 @@ package net.kenevans.gpxinspector.ui;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import net.kenevans.core.utils.SWTUtils;
-import net.kenevans.gpxinspector.model.GpxTrackModel;
-import net.kenevans.gpxinspector.utils.GpxUtils;
-import net.kenevans.gpxinspector.utils.LabeledList;
-import net.kenevans.gpxinspector.utils.LabeledText;
-import net.kenevans.gpxinspector.utils.TrackStat;
-import net.kenevans.gpxtrackpointextensionsv1.ExtensionsType;
-import net.kenevans.gpxtrackpointextensionsv1.TrkType;
-import net.kenevans.gpxtrackpointextensionsv1.TrksegType;
-import net.kenevans.gpxtrackpointextensionsv1.WptType;
-
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.Clipboard;
@@ -30,6 +19,17 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+
+import net.kenevans.gpxinspector.model.GpxTrackModel;
+import net.kenevans.gpxinspector.utils.GpxUtils;
+import net.kenevans.gpxinspector.utils.LabeledList;
+import net.kenevans.gpxinspector.utils.LabeledText;
+import net.kenevans.gpxinspector.utils.SWTUtils;
+import net.kenevans.gpxinspector.utils.TrackStat;
+import net.kenevans.gpxtrackpointextensionsv1.ExtensionsType;
+import net.kenevans.gpxtrackpointextensionsv1.TrkType;
+import net.kenevans.gpxtrackpointextensionsv1.TrksegType;
+import net.kenevans.gpxtrackpointextensionsv1.WptType;
 
 /*
  * Created on Aug 23, 2010
@@ -133,10 +133,10 @@ public class TrkInfoDialog extends InfoDialog
         GridDataFactory.fillDefaults().grab(true, false)
             .applyTo(labeledText.getComposite());
         descText = labeledText.getText();
-        descText.setToolTipText("A text description of the element.Holds "
-            + "additional\n"
-            + "information about the element intended for the\n"
-            + "user, not the GPS.");
+        descText.setToolTipText(
+            "A text description of the element.Holds " + "additional\n"
+                + "information about the element intended for the\n"
+                + "user, not the GPS.");
 
         // Number
         labeledText = new LabeledText(box, "Number:", TEXT_WIDTH_LARGE);
@@ -399,8 +399,8 @@ public class TrkInfoDialog extends InfoDialog
         } else {
             java.util.List<Object> objs = extType.getAny();
             for(Object obj : objs) {
-                extensionsList.add(obj.getClass().getName() + " "
-                    + obj.toString());
+                extensionsList
+                    .add(obj.getClass().getName() + " " + obj.toString());
             }
         }
 
@@ -516,27 +516,27 @@ public class TrkInfoDialog extends InfoDialog
         if(Double.isNaN(val)) {
             statString += NOT_AVAILABLE;
         } else {
-            statString += String
-                .format("%.2f %s", velocityUnits.convertMetersPerSec(val),
-                    velocityUnits.getName());
+            statString += String.format("%.2f %s",
+                velocityUnits.convertMetersPerSec(val),
+                velocityUnits.getName());
         }
         val = stat.getMaxSpeed();
         statString += ", Max: ";
         if(Double.isNaN(val)) {
             statString += NOT_AVAILABLE;
         } else {
-            statString += String
-                .format("%.2f %s", velocityUnits.convertMetersPerSec(val),
-                    velocityUnits.getName());
+            statString += String.format("%.2f %s",
+                velocityUnits.convertMetersPerSec(val),
+                velocityUnits.getName());
         }
         val = stat.getAvgMovingSpeed();
         statString += ", Avg Moving: ";
         if(Double.isNaN(val)) {
             statString += NOT_AVAILABLE;
         } else {
-            statString += String
-                .format("%.2f %s", velocityUnits.convertMetersPerSec(val),
-                    velocityUnits.getName());
+            statString += String.format("%.2f %s",
+                velocityUnits.convertMetersPerSec(val),
+                velocityUnits.getName());
         }
         speedLabel.setText(statString);
         // Should not be necessary ?
@@ -635,25 +635,25 @@ public class TrkInfoDialog extends InfoDialog
         if(Double.isNaN(val)) {
             string += "," + NOT_AVAILABLE;
         } else {
-            string += String
-                .format(",%.2f %s", velocityUnits.convertMetersPerSec(val),
-                    velocityUnits.getName());
+            string += String.format(",%.2f %s",
+                velocityUnits.convertMetersPerSec(val),
+                velocityUnits.getName());
         }
         val = stat.getMaxSpeed();
         if(Double.isNaN(val)) {
             string += "," + NOT_AVAILABLE;
         } else {
-            string += String
-                .format(",%.2f %s", velocityUnits.convertMetersPerSec(val),
-                    velocityUnits.getName());
+            string += String.format(",%.2f %s",
+                velocityUnits.convertMetersPerSec(val),
+                velocityUnits.getName());
         }
         val = stat.getAvgMovingSpeed();
         if(Double.isNaN(val)) {
             string += "," + NOT_AVAILABLE;
         } else {
-            string += String
-                .format(",%.2f %s", velocityUnits.convertMetersPerSec(val),
-                    velocityUnits.getName());
+            string += String.format(",%.2f %s",
+                velocityUnits.convertMetersPerSec(val),
+                velocityUnits.getName());
         }
 
         // Copy it to the clipboard

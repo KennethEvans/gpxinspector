@@ -2,8 +2,7 @@ package net.kenevans.gpxinspector.converters;
 
 import java.io.File;
 
-import net.kenevans.core.utils.SWTUtils;
-import net.kenevans.core.utils.Utils;
+import net.kenevans.gpxinspector.utils.SWTUtils;
 import net.kenevans.gpxtrackpointextensionsv1.GpxType;
 import net.kenevans.gpxtrackpointextensionsv1.parser.GPXParser;
 
@@ -48,7 +47,7 @@ public class GpxConverter implements IGpxConverter
      */
     @Override
     public boolean isParseSupported(File file) {
-        String fileExt = "." + Utils.getExtension(file);
+        String fileExt = "." + SWTUtils.getExtension(file);
         if(fileExt != null) {
             for(String ext : extensions) {
                 if(fileExt.equalsIgnoreCase(ext)) {
@@ -68,7 +67,7 @@ public class GpxConverter implements IGpxConverter
      */
     @Override
     public boolean isSaveSupported(File file) {
-        String fileExt = "." + Utils.getExtension(file);
+        String fileExt = "." + SWTUtils.getExtension(file);
         if(fileExt != null) {
             for(String ext : extensions) {
                 if(fileExt.equalsIgnoreCase(ext)) {

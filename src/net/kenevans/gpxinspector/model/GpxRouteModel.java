@@ -3,13 +3,13 @@ package net.kenevans.gpxinspector.model;
 import java.util.LinkedList;
 import java.util.List;
 
-import net.kenevans.core.utils.SWTUtils;
+import org.eclipse.swt.widgets.Display;
+
+import net.kenevans.gpxinspector.ui.RteInfoDialog;
+import net.kenevans.gpxinspector.utils.SWTUtils;
 import net.kenevans.gpxtrackpointextensionsv1.RteType;
 import net.kenevans.gpxtrackpointextensionsv1.WptType;
 import net.kenevans.gpxtrackpointextensionsv1.parser.GPXClone;
-import net.kenevans.gpxinspector.ui.RteInfoDialog;
-
-import org.eclipse.swt.widgets.Display;
 
 /*
  * Created on Dec 06, 2010
@@ -201,9 +201,8 @@ public class GpxRouteModel extends GpxModel implements IGpxElementConstants
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * net.kenevans.gpxinspector.model.GpxModel#setParent(net.kenevans.gpxinspector
-     * .model.GpxModel)
+     * @see net.kenevans.gpxinspector.model.GpxModel#setParent(net.kenevans.
+     * gpxinspector .model.GpxModel)
      */
     @Override
     public void setParent(GpxModel parent) {

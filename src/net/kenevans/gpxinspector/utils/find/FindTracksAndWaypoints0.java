@@ -7,17 +7,16 @@ import java.io.PrintStream;
 import java.text.DecimalFormat;
 import java.util.List;
 
-import net.kenevans.core.utils.SWTUtils;
-import net.kenevans.core.utils.Utils;
-import net.kenevans.gpxtrackpointextensionsv1.TrksegType;
-import net.kenevans.gpxtrackpointextensionsv1.WptType;
 import net.kenevans.gpxinspector.model.GpxFileModel;
 import net.kenevans.gpxinspector.model.GpxTrackModel;
 import net.kenevans.gpxinspector.model.GpxWaypointModel;
 import net.kenevans.gpxinspector.preferences.IPreferenceConstants;
 import net.kenevans.gpxinspector.utils.GpxException;
 import net.kenevans.gpxinspector.utils.GpxUtils;
+import net.kenevans.gpxinspector.utils.SWTUtils;
 import net.kenevans.gpxinspector.utils.find.FindOptions0.Units;
+import net.kenevans.gpxtrackpointextensionsv1.TrksegType;
+import net.kenevans.gpxtrackpointextensionsv1.WptType;
 
 /*
  * Created on Sep 6, 2010
@@ -147,7 +146,7 @@ public class FindTracksAndWaypoints0 implements IPreferenceConstants
      */
     private void process(File file) {
         if(!file.exists()) return;
-        String ext = Utils.getExtension(file);
+        String ext = SWTUtils.getExtension(file);
         if(ext == null) return;
         if(ext.toLowerCase().equals("gpx")) {
             try {

@@ -6,20 +6,20 @@ import java.util.List;
 
 import javax.xml.bind.JAXBException;
 
-import net.kenevans.core.utils.SWTUtils;
+import org.eclipse.swt.widgets.Display;
+
+import net.kenevans.gpxinspector.converters.ConverterDescriptor;
+import net.kenevans.gpxinspector.plugin.Activator;
+import net.kenevans.gpxinspector.ui.FileInfoDialog;
+import net.kenevans.gpxinspector.ui.SaveFilesDialog;
+import net.kenevans.gpxinspector.utils.GpxException;
+import net.kenevans.gpxinspector.utils.SWTUtils;
 import net.kenevans.gpxtrackpointextensionsv1.GpxType;
 import net.kenevans.gpxtrackpointextensionsv1.RteType;
 import net.kenevans.gpxtrackpointextensionsv1.TrkType;
 import net.kenevans.gpxtrackpointextensionsv1.TrksegType;
 import net.kenevans.gpxtrackpointextensionsv1.WptType;
 import net.kenevans.gpxtrackpointextensionsv1.parser.GPXClone;
-import net.kenevans.gpxinspector.converters.ConverterDescriptor;
-import net.kenevans.gpxinspector.plugin.Activator;
-import net.kenevans.gpxinspector.ui.FileInfoDialog;
-import net.kenevans.gpxinspector.ui.SaveFilesDialog;
-import net.kenevans.gpxinspector.utils.GpxException;
-
-import org.eclipse.swt.widgets.Display;
 
 /*
  * Created on Aug 22, 2010
@@ -73,11 +73,11 @@ public class GpxFileModel extends GpxModel implements IGpxElementConstants
         // .getConverterDescriptors();
         // for(ConverterDescriptor converter : converters) {
         // System.out.println(file.getName());
-        // System.out.println("  " + converter.getName());
-        // System.out.println("  " + converter.getId());
-        // System.out.println("  Is parse supported: "
+        // System.out.println(" " + converter.getName());
+        // System.out.println(" " + converter.getId());
+        // System.out.println(" Is parse supported: "
         // + converter.isParseSupported(file));
-        // System.out.println("  Is save supported: "
+        // System.out.println(" Is save supported: "
         // + converter.isSaveSupported(file));
         // }
         // }
@@ -97,8 +97,8 @@ public class GpxFileModel extends GpxModel implements IGpxElementConstants
             throw new GpxException("Cannot parse a null file");
         }
         if(!file.exists()) {
-            throw new GpxException("File to parse does not exist:\n"
-                + file.getPath());
+            throw new GpxException(
+                "File to parse does not exist:\n" + file.getPath());
         }
         // Find the converters
         List<ConverterDescriptor> converters = null;
@@ -119,8 +119,8 @@ public class GpxFileModel extends GpxModel implements IGpxElementConstants
                 return converter.parse(file);
             }
         }
-        throw new GpxException("No converters found to parse file:\n"
-            + file.getPath());
+        throw new GpxException(
+            "No converters found to parse file:\n" + file.getPath());
     }
 
     /**
@@ -158,8 +158,8 @@ public class GpxFileModel extends GpxModel implements IGpxElementConstants
                 return;
             }
         }
-        throw new GpxException("No converters found to write file:\n"
-            + file.getPath());
+        throw new GpxException(
+            "No converters found to write file:\n" + file.getPath());
     }
 
     /**
@@ -239,8 +239,7 @@ public class GpxFileModel extends GpxModel implements IGpxElementConstants
             // FIXME
             String msg;
             if(newFile) {
-                msg = this.getLabel()
-                    + " is new and not saved yet.\n"
+                msg = this.getLabel() + " is new and not saved yet.\n"
                     + "Select OK to do Save As or Cancel to delete without saving.";
                 boolean res = SWTUtils.confirmMsg(msg);
                 if(res) {
@@ -248,8 +247,7 @@ public class GpxFileModel extends GpxModel implements IGpxElementConstants
                     newFile = false;
                 }
             } else {
-                msg = this.getLabel()
-                    + "\nhas been modified and not saved.\n"
+                msg = this.getLabel() + "\nhas been modified and not saved.\n"
                     + "Select OK to save it or Cancel to delete without saving.";
                 boolean res = SWTUtils.confirmMsg(msg);
                 if(res) {
@@ -353,11 +351,11 @@ public class GpxFileModel extends GpxModel implements IGpxElementConstants
         boolean retVal = trackModels.remove(model);
         // DEBUG
         // System.out.println("remove " + model + " " + model.getParent());
-        // System.out.println("  from " + this + " " + this.getParent());
+        // System.out.println(" from " + this + " " + this.getParent());
         int n = 0;
         for(GpxTrackModel item : trackModels) {
-            System.out.printf("%d %s %s\n", n++, item.toString(), item
-                .getParent().toString());
+            System.out.printf("%d %s %s\n", n++, item.toString(),
+                item.getParent().toString());
         }
         if(retVal) {
             model.dispose();
@@ -531,10 +529,11 @@ public class GpxFileModel extends GpxModel implements IGpxElementConstants
             return null;
         }
         StringBuffer buf = new StringBuffer();
-        buf.append(String.format("Hierarchy for %s %x\n", fileModel.getFile()
-            .getName(), fileModel.hashCode()));
-        buf.append(String.format("Parent %s %x\n", fileModel.getParent()
-            .getClass().getName(), fileModel.getParent().hashCode()));
+        buf.append(String.format("Hierarchy for %s %x\n",
+            fileModel.getFile().getName(), fileModel.hashCode()));
+        buf.append(String.format("Parent %s %x\n",
+            fileModel.getParent().getClass().getName(),
+            fileModel.getParent().hashCode()));
         buf.append(String.format("Tracks:\n"));
         for(GpxTrackModel model : fileModel.getTrackModels()) {
             buf.append(String.format("  %s %x parent %x\n", model.getLabel(),
@@ -544,17 +543,17 @@ public class GpxFileModel extends GpxModel implements IGpxElementConstants
                 for(GpxTrackSegmentModel trackSegmentModel : model
                     .getTrackSegmentModels()) {
                     buf.append(String.format("    %s %x parent %x\n",
-                        trackSegmentModel.getLabel(), trackSegmentModel
-                            .hashCode(), trackSegmentModel.getParent()
-                            .hashCode()));
+                        trackSegmentModel.getLabel(),
+                        trackSegmentModel.hashCode(),
+                        trackSegmentModel.getParent().hashCode()));
                     if(true) {
                         buf.append(String.format("    Track Points:\n"));
                         for(GpxWaypointModel waypointModel : trackSegmentModel
                             .getWaypointModels()) {
                             buf.append(String.format("      %s %x parent %x\n",
-                                waypointModel.getLabel(), trackSegmentModel
-                                    .hashCode(), waypointModel.getParent()
-                                    .hashCode()));
+                                waypointModel.getLabel(),
+                                trackSegmentModel.hashCode(),
+                                waypointModel.getParent().hashCode()));
                         }
                     }
                 }
@@ -731,9 +730,8 @@ public class GpxFileModel extends GpxModel implements IGpxElementConstants
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * net.kenevans.gpxinspector.model.GpxModel#setParent(net.kenevans.gpxinspector
-     * .model.GpxModel)
+     * @see net.kenevans.gpxinspector.model.GpxModel#setParent(net.kenevans.
+     * gpxinspector .model.GpxModel)
      */
     @Override
     public void setParent(GpxModel parent) {

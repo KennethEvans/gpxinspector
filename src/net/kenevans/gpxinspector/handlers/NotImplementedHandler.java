@@ -1,12 +1,12 @@
 package net.kenevans.gpxinspector.handlers;
 
-import net.kenevans.core.utils.SWTUtils;
-
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
+
+import net.kenevans.gpxinspector.utils.SWTUtils;
 
 /**
  * Generic handler that display a Not Implemented dialog.
@@ -19,9 +19,8 @@ public class NotImplementedHandler extends AbstractHandler
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.eclipse.core.commands.AbstractHandler#execute(org.eclipse.core.commands
-     * .ExecutionEvent)
+     * @see org.eclipse.core.commands.AbstractHandler#execute(org.eclipse.core.
+     * commands .ExecutionEvent)
      */
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {

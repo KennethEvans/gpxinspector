@@ -69,12 +69,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       <plugin id="javax.servlet"/>
       <plugin id="javax.servlet.jsp"/>
       <plugin id="javax.xml"/>
-      <plugin id="net.kenevans.commons-io"/>
-      <plugin id="net.kenevans.core.utils"/>
-      <plugin id="net.kenevans.gpx"/>
       <plugin id="net.kenevans.gpxinspector"/>
-      <plugin id="net.kenevans.jak"/>
-      <plugin id="net.kenevans.jaxb"/>
       <plugin id="org.apache.batik.css"/>
       <plugin id="org.apache.batik.util"/>
       <plugin id="org.apache.batik.util.gui"/>

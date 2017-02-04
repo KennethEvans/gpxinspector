@@ -15,17 +15,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.kenevans.core.utils.RainbowColorScheme;
-import net.kenevans.core.utils.SWTUtils;
-import net.kenevans.gpxinspector.model.GpxFileModel;
-import net.kenevans.gpxinspector.model.GpxFileSetModel;
-import net.kenevans.gpxinspector.model.GpxRouteModel;
-import net.kenevans.gpxinspector.model.GpxTrackModel;
-import net.kenevans.gpxinspector.model.GpxWaypointModel;
-import net.kenevans.gpxinspector.preferences.IPreferenceConstants;
-import net.kenevans.gpxinspector.utils.GpxUtils;
-import net.kenevans.gpxtrackpointextensionsv1.TrksegType;
-import net.kenevans.gpxtrackpointextensionsv1.WptType;
 import de.micromata.opengis.kml.v_2_2_0.ColorMode;
 import de.micromata.opengis.kml.v_2_2_0.Document;
 import de.micromata.opengis.kml.v_2_2_0.Folder;
@@ -38,6 +27,17 @@ import de.micromata.opengis.kml.v_2_2_0.Placemark;
 import de.micromata.opengis.kml.v_2_2_0.Style;
 import de.micromata.opengis.kml.v_2_2_0.gx.MultiTrack;
 import de.micromata.opengis.kml.v_2_2_0.gx.Track;
+import net.kenevans.gpxinspector.model.GpxFileModel;
+import net.kenevans.gpxinspector.model.GpxFileSetModel;
+import net.kenevans.gpxinspector.model.GpxRouteModel;
+import net.kenevans.gpxinspector.model.GpxTrackModel;
+import net.kenevans.gpxinspector.model.GpxWaypointModel;
+import net.kenevans.gpxinspector.preferences.IPreferenceConstants;
+import net.kenevans.gpxinspector.utils.GpxUtils;
+import net.kenevans.gpxinspector.utils.RainbowColorScheme;
+import net.kenevans.gpxinspector.utils.SWTUtils;
+import net.kenevans.gpxtrackpointextensionsv1.TrksegType;
+import net.kenevans.gpxtrackpointextensionsv1.WptType;
 
 /*
  * Created on Aug 23, 2010
@@ -73,8 +73,8 @@ public class KmlUtils implements IPreferenceConstants
         final Kml kml = KmlFactory.createKml();
 
         // Create the Document for this file
-        Document document = kml.createAndSetDocument()
-            .withName("GPX Inspector").withOpen(true);
+        Document document = kml.createAndSetDocument().withName("GPX Inspector")
+            .withOpen(true);
 
         // Make the Styles for this Document
         Style style;
@@ -298,9 +298,8 @@ public class KmlUtils implements IPreferenceConstants
                             alt = 0;
                         }
                         if(trackPoint.getTime() != null) {
-                            when = GpxUtils
-                                .getGmtTimeFromXMLGregorianCalendar(trackPoint
-                                    .getTime());
+                            when = GpxUtils.getGmtTimeFromXMLGregorianCalendar(
+                                trackPoint.getTime());
                         } else {
                             when = null;
                         }
@@ -315,8 +314,7 @@ public class KmlUtils implements IPreferenceConstants
                         // on the track
                         if(useTrackIconFirst) {
                             useTrackIconFirst = false;
-                            folder
-                                .createAndAddPlacemark()
+                            folder.createAndAddPlacemark()
                                 .withName(trackModel.getLabel())
                                 .withVisibility(!kmlOptions.getUseTrkTrack())
                                 .withStyleUrl(
@@ -325,10 +323,9 @@ public class KmlUtils implements IPreferenceConstants
                         }
                         if(trackPlacemark != null && useTrackTrackFirst) {
                             useTrackTrackFirst = false;
-                            trackPlacemark
-                                .setDescription(GpxUtils
-                                    .getLocalTimeFromXMLGregorianCalendar(trackPoint
-                                        .getTime()));
+                            trackPlacemark.setDescription(
+                                GpxUtils.getLocalTimeFromXMLGregorianCalendar(
+                                    trackPoint.getTime()));
                         }
                     }
                 }
@@ -386,8 +383,7 @@ public class KmlUtils implements IPreferenceConstants
                         // Make a Placemark with an Icon at the first point
                         // on the track
                         useRteIconFirst = false;
-                        routeFolder
-                            .createAndAddPlacemark()
+                        routeFolder.createAndAddPlacemark()
                             .withName(routeModel.getLabel())
                             .withStyleUrl(
                                 "#rte" + rteColors[nRoute % nRteColors])
@@ -409,8 +405,8 @@ public class KmlUtils implements IPreferenceConstants
         final String kmlFileName = kmlOptions.getKmlFileName();
         final File outFile = new File(kmlFileName);
         if(kmlOptions.getPromptToOverwrite() && outFile.exists()) {
-            Boolean res = SWTUtils.confirmMsg("File exists: "
-                + outFile.getPath() + "\nOK to overwrite?");
+            Boolean res = SWTUtils.confirmMsg(
+                "File exists: " + outFile.getPath() + "\nOK to overwrite?");
             if(!res) {
                 return;
             }
@@ -422,8 +418,8 @@ public class KmlUtils implements IPreferenceConstants
             // Send it to Google Earth
             if(kmlOptions.getSendToGoogle()) {
                 if(VERBOSE) {
-                    System.out.println("Sending " + outFile.getPath()
-                        + " to Google Earth");
+                    System.out.println(
+                        "Sending " + outFile.getPath() + " to Google Earth");
                 }
                 if(Desktop.isDesktopSupported()) {
                     final Desktop dt = Desktop.getDesktop();
@@ -749,8 +745,8 @@ public class KmlUtils implements IPreferenceConstants
                     }
                 }
             } else {
-                SWTUtils.errMsgAsync("Could not find coordinates from "
-                    + "clipboard placemark");
+                SWTUtils.errMsgAsync(
+                    "Could not find coordinates from " + "clipboard placemark");
                 return null;
             }
         } else {
@@ -845,10 +841,10 @@ public class KmlUtils implements IPreferenceConstants
             } catch(NumberFormatException ex) {
                 // Do nothing
             }
-            double rlat = GpxUtils.greatCircleDistance(lat0, lon0, lat0
-                + DELTA_LATLON, lon0);
-            double rlon = GpxUtils.greatCircleDistance(lat0, lon0, lat0, lon0
-                + DELTA_LATLON);
+            double rlat = GpxUtils.greatCircleDistance(lat0, lon0,
+                lat0 + DELTA_LATLON, lon0);
+            double rlon = GpxUtils.greatCircleDistance(lat0, lon0, lat0,
+                lon0 + DELTA_LATLON);
             double a = DELTA_LATLON / rlon * radius;
             double b = DELTA_LATLON / rlat * radius;
             if(!Double.isNaN(a) && !Double.isInfinite(a) && !Double.isNaN(b)

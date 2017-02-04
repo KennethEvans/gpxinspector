@@ -1,10 +1,5 @@
 package net.kenevans.gpxinspector.kml;
 
-import net.kenevans.core.utils.SWTUtils;
-import net.kenevans.gpxinspector.plugin.Activator;
-import net.kenevans.gpxinspector.preferences.IPreferenceConstants;
-import net.kenevans.gpxinspector.utils.LabeledText;
-
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.swt.SWT;
@@ -34,6 +29,11 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+
+import net.kenevans.gpxinspector.plugin.Activator;
+import net.kenevans.gpxinspector.preferences.IPreferenceConstants;
+import net.kenevans.gpxinspector.utils.LabeledText;
+import net.kenevans.gpxinspector.utils.SWTUtils;
 
 /*
  * Created on Aug 23, 2010
@@ -148,8 +148,8 @@ public class SaveKmlDialog extends Dialog implements IPreferenceConstants
 
         Button button = new Button(composite, SWT.PUSH);
         button.setText("Preferences");
-        button.setToolTipText("Replace all settings with the current "
-            + "preferences.");
+        button.setToolTipText(
+            "Replace all settings with the current " + "preferences.");
         GridDataFactory.fillDefaults().align(SWT.CENTER, SWT.FILL)
             .grab(true, true).applyTo(button);
         button.addSelectionListener(new SelectionAdapter() {
@@ -212,12 +212,10 @@ public class SaveKmlDialog extends Dialog implements IPreferenceConstants
         GridDataFactory.fillDefaults().applyTo(label);
 
         kmlNameText = new Text(browseComposite, SWT.NONE);
-        GridDataFactory
-            .fillDefaults()
-            .hint(
-                new Point(SWTUtils.getTextWidth(kmlNameText, TEXT_COLS_LARGE),
-                    SWT.DEFAULT)).align(SWT.FILL, SWT.FILL).grab(true, true)
-            .applyTo(kmlNameText);
+        GridDataFactory.fillDefaults()
+            .hint(new Point(SWTUtils.getTextWidth(kmlNameText, TEXT_COLS_LARGE),
+                SWT.DEFAULT))
+            .align(SWT.FILL, SWT.FILL).grab(true, true).applyTo(kmlNameText);
         kmlNameText.setToolTipText("Full path for KML file.");
         kmlNameText.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent ex) {
@@ -236,8 +234,8 @@ public class SaveKmlDialog extends Dialog implements IPreferenceConstants
             }
         });
         // Create a drop target
-        DropTarget dropTarget = new DropTarget(kmlNameText, DND.DROP_COPY
-            | DND.DROP_DEFAULT);
+        DropTarget dropTarget = new DropTarget(kmlNameText,
+            DND.DROP_COPY | DND.DROP_DEFAULT);
         dropTarget.setTransfer(new Transfer[] {TextTransfer.getInstance(),
             FileTransfer.getInstance()});
         dropTarget.addDropListener(new DropTargetAdapter() {
@@ -267,12 +265,12 @@ public class SaveKmlDialog extends Dialog implements IPreferenceConstants
              */
             public void drop(DropTargetEvent event) {
                 // See if it is selectionText
-                if(TextTransfer.getInstance().isSupportedType(
-                    event.currentDataType)) {
+                if(TextTransfer.getInstance()
+                    .isSupportedType(event.currentDataType)) {
                     String fileName = (String)event.data;
                     kmlNameText.setText(fileName);
-                } else if(FileTransfer.getInstance().isSupportedType(
-                    event.currentDataType)) {
+                } else if(FileTransfer.getInstance()
+                    .isSupportedType(event.currentDataType)) {
                     String[] fileNames = (String[])event.data;
                     kmlNameText.setText(fileNames[0]);
                 }
@@ -378,7 +376,8 @@ public class SaveKmlDialog extends Dialog implements IPreferenceConstants
         wptIconUrlText.setToolTipText("The URL for the waypoint icons.");
 
         // Icon scale
-        labeledText = new LabeledText(composite, "Icon scale:", TEXT_COLS_SMALL);
+        labeledText = new LabeledText(composite, "Icon scale:",
+            TEXT_COLS_SMALL);
         iconScaleText = labeledText.getText();
         iconScaleText.setToolTipText("The scale for all icons.");
     }
@@ -421,9 +420,8 @@ public class SaveKmlDialog extends Dialog implements IPreferenceConstants
         // Wpt color
         labeledText = new LabeledText(composite, "Wpt color:", TEXT_COLS_SMALL);
         wptColorText = labeledText.getText();
-        wptColorText
-            .setToolTipText("The color of the waypoints when the color mode is "
-                + "Color.\n"
+        wptColorText.setToolTipText(
+            "The color of the waypoints when the color mode is " + "Color.\n"
                 + "Note: Colors are text strings of the form bbggrr.");
 
         // Wpt color mode
@@ -490,9 +488,8 @@ public class SaveKmlDialog extends Dialog implements IPreferenceConstants
         // Rte color
         labeledText = new LabeledText(composite, "Rte color:", TEXT_COLS_SMALL);
         rteColorText = labeledText.getText();
-        rteColorText
-            .setToolTipText("The color of the routes when the color mode is "
-                + "Color.\n"
+        rteColorText.setToolTipText(
+            "The color of the routes when the color mode is " + "Color.\n"
                 + "Note: Colors are text strings of the form bbggrr.");
 
         // Rte color mode
@@ -574,9 +571,8 @@ public class SaveKmlDialog extends Dialog implements IPreferenceConstants
         // Trk color
         labeledText = new LabeledText(composite, "Trk color:", TEXT_COLS_SMALL);
         trkColorText = labeledText.getText();
-        trkColorText
-            .setToolTipText("The color of the tracks when the color mode is "
-                + "Color.\n"
+        trkColorText.setToolTipText(
+            "The color of the tracks when the color mode is " + "Color.\n"
                 + "Note: Colors are text strings of the form bbggrr.");
 
         // Trk color mode
@@ -704,10 +700,10 @@ public class SaveKmlDialog extends Dialog implements IPreferenceConstants
         rteAlphaText.setText(prefs.getString(P_RTE_ALPHA));
         rteColorModeCombo.select(prefs.getInt(P_RTE_COLOR_MODE));
         useRteIconButton.setSelection(prefs.getBoolean(P_USE_RTE_ICON));
-        promptToOverwriteButton.setSelection(prefs
-            .getBoolean(P_KML_PROMPT_TO_OVERWRITE));
-        sendToGoogleButton.setSelection(prefs
-            .getBoolean(P_KML_SEND_TO_GOOGLE_EARTH));
+        promptToOverwriteButton
+            .setSelection(prefs.getBoolean(P_KML_PROMPT_TO_OVERWRITE));
+        sendToGoogleButton
+            .setSelection(prefs.getBoolean(P_KML_SEND_TO_GOOGLE_EARTH));
     }
 
     /**

@@ -1,7 +1,5 @@
 package net.kenevans.gpxinspector.utils;
 
-import net.kenevans.core.utils.SWTUtils;
-
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Point;
@@ -51,11 +49,9 @@ public class LabeledList
         GridDataFactory.fillDefaults().applyTo(label);
 
         list = new List(composite, SWT.BORDER | SWT.V_SCROLL | SWT.H_SCROLL);
-        GridDataFactory
-            .fillDefaults()
-            .hint(
-                new Point(SWTUtils.getTextWidth(list, textWidth), SWTUtils
-                    .getTextHeight(list, textHeight)))
+        GridDataFactory.fillDefaults()
+            .hint(new Point(SWTUtils.getTextWidth(list, textWidth),
+                SWTUtils.getTextHeight(list, textHeight)))
             .align(SWT.FILL, SWT.FILL).grab(true, true).applyTo(list);
     }
 

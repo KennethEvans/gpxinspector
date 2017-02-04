@@ -7,10 +7,8 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.kenevans.core.utils.SWTUtils;
-import net.kenevans.core.utils.Utils;
-import net.kenevans.gpxtrackpointextensionsv1.TrksegType;
-import net.kenevans.gpxtrackpointextensionsv1.WptType;
+import org.apache.commons.io.filefilter.WildcardFileFilter;
+
 import net.kenevans.gpxinspector.converters.ConverterDescriptor;
 import net.kenevans.gpxinspector.model.GpxFileModel;
 import net.kenevans.gpxinspector.model.GpxFileSetModel;
@@ -18,9 +16,10 @@ import net.kenevans.gpxinspector.model.GpxTrackModel;
 import net.kenevans.gpxinspector.model.GpxWaypointModel;
 import net.kenevans.gpxinspector.preferences.IPreferenceConstants;
 import net.kenevans.gpxinspector.utils.GpxUtils;
+import net.kenevans.gpxinspector.utils.SWTUtils;
 import net.kenevans.gpxinspector.utils.find.FindNearOptions.Units;
-
-import org.apache.commons.io.filefilter.WildcardFileFilter;
+import net.kenevans.gpxtrackpointextensionsv1.TrksegType;
+import net.kenevans.gpxtrackpointextensionsv1.WptType;
 
 /*
  * Created on Sep 6, 2010
@@ -176,11 +175,11 @@ public class FindNear implements IPreferenceConstants
      */
     public void find(File dir) {
         if(dir == null) {
-            Utils.errMsg("Invalid directory");
+            SWTUtils.errMsg("Invalid directory");
             System.exit(1);
         }
         if(!dir.isDirectory()) {
-            Utils.errMsg("Not a directory");
+            SWTUtils.errMsg("Not a directory");
             System.exit(1);
         }
 
@@ -234,7 +233,7 @@ public class FindNear implements IPreferenceConstants
             return;
         }
         if(fileModel == null) {
-            Utils.errMsg("readAndProcessGpxFile: fileModel is null");
+            SWTUtils.errMsg("readAndProcessGpxFile: fileModel is null");
             return;
         }
         processGpxFileModel(fileModel);
@@ -744,18 +743,19 @@ public class FindNear implements IPreferenceConstants
         }
         if(options.getUnits() == Units.UNSPECIFIED) {
             if(unitsString != null) {
-                Utils.errMsg("deltaUnits (" + unitsString + ") is not valid");
+                SWTUtils
+                    .errMsg("deltaUnits (" + unitsString + ") is not valid");
             } else {
-                Utils.errMsg("deltaUnits is not valid");
+                SWTUtils.errMsg("deltaUnits is not valid");
             }
             return false;
         }
         if(!latSpecified) {
-            Utils.errMsg("lat must be specified");
+            SWTUtils.errMsg("lat must be specified");
             return false;
         }
         if(!lonSpecified) {
-            Utils.errMsg("lon must be specified");
+            SWTUtils.errMsg("lon must be specified");
             return false;
         }
         return true;

@@ -3,9 +3,6 @@ package net.kenevans.gpxinspector.plugin;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.kenevans.core.utils.SWTUtils;
-import net.kenevans.gpxinspector.converters.ConverterDescriptor;
-
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtension;
 import org.eclipse.core.runtime.IExtensionPoint;
@@ -15,6 +12,9 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
+
+import net.kenevans.gpxinspector.converters.ConverterDescriptor;
+import net.kenevans.gpxinspector.utils.SWTUtils;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -40,9 +40,8 @@ public class Activator extends AbstractUIPlugin
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext
-     * )
+     * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.
+     * BundleContext )
      */
     public void start(BundleContext context) throws Exception {
         super.start(context);
@@ -53,9 +52,8 @@ public class Activator extends AbstractUIPlugin
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext
-     * )
+     * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.
+     * BundleContext )
      */
     public void stop(BundleContext context) throws Exception {
         plugin = null;
