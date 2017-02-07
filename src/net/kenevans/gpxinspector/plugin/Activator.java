@@ -107,7 +107,7 @@ public class Activator extends AbstractUIPlugin
             IStatus status = new Status(IStatus.ERROR, PLUGIN_ID, 0,
                 "Failed to find any Converters.", null);
             getDefault().getLog().log(status);
-            SWTUtils.errMsg("Failed to find any Converters");
+            SWTUtils.errMsgAsync("Failed to find any Converters");
         }
     }
 
