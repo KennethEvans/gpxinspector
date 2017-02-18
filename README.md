@@ -9,3 +9,8 @@ See https://rawgit.com/KennethEvans/gpxinspector/master/help/overview.html.
 More information and FAQ are at https://kennethevans.github.io as well as more projects from the same author.
 
 Licensed under the MIT license. (See: https://en.wikipedia.org/wiki/MIT_License)
+
+**Related projects**
+
+* net.kenevans.gpxinspector.gpsl
+ * https://github.com/KennethEvans/gpxinspector-gpsl
