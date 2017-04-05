@@ -628,7 +628,9 @@
          </separator>
       </menuContribution>
       <menuContribution
-            locationURI="menu:file?after=additions">
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               label="File">
          <command
                commandId="net.kenevans.gpxinspector.newGpxFile"
                label="New GPX File"
@@ -679,12 +681,78 @@
                style="push">
          </command>
          <separator
+               name="separator4"
+               visible="true">
+         </separator>
+         <command
+               commandId="org.eclipse.ui.file.exit"
+               label="Exit">
+         </command>
+         <separator
                name="additions"
                visible="true">
          </separator>
+         </menu>
+         <menu
+               label="Window">
+           <command
+                  commandId="org.eclipse.ui.views.showView"
+                  label="Show View">
+           </command>
+         <menu
+               label="Perspective">
+            <command
+                  commandId="org.eclipse.ui.perspectives.showPerspective"
+                  label="Open Perspective">
+           </command>
+           <separator
+                  name="separator1"
+                  visible="true">
+           </separator>
+           <command
+                  commandId="org.eclipse.ui.window.customizePerspective"
+                  label="Customize Perspective...">
+           </command>
+           <command
+                  commandId="org.eclipse.ui.window.savePerspective"
+                  label="Save Perspective As...">
+           </command>
+           <command
+                  commandId="org.eclipse.ui.window.resetPerspective"
+                  label="Reset Perspective...">
+           </command>
+           <command
+                  commandId="org.eclipse.ui.window.closePerspective"
+                  label="Close Perspective">
+           </command>
+           <command
+                  commandId="org.eclipse.ui.window.closeAllPerspectives"
+                  label="Close All Perspectives">
+           </command>
+         </menu>
+           <separator
+                  name="separator1"
+                  visible="true">
+           </separator>
+            <command
+                  commandId="org.eclipse.ui.window.preferences"
+                  label="Preferences">
+           </command>
+         </menu>
+         <menu
+               label="Help">
+           <command
+                  commandId="org.eclipse.ui.help.helpContents"
+                  label="Help Contents">
+            </command>
+          <command
+                  commandId="org.eclipse.ui.help.aboutAction"
+                  label="About GPX Inspector">
+            </command>
+         </menu>
       </menuContribution>
       <menuContribution
-            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
          <command
                commandId="net.kenevans.gpxinspector.openGpxFile"
                icon="icons/GPXInspector16.png"
