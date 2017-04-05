@@ -22,8 +22,9 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor
     public void preWindowOpen() {
         IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
         configurer.setInitialSize(new Point(800, 800));
-        // TODO Determine why the icons are not going to the main toolbar. Set
-        // this to true to test.
+        // TODO Main toolbar never did appear when this was true
+        // Have now removed
+        // toolbar:org.eclipse.ui.main.toolbar?after=additions
         configurer.setShowCoolBar(false);
         configurer.setShowStatusLine(false);
     }

@@ -64,6 +64,91 @@
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               label="File">
+           <command
+                 commandId="net.kenevans.gpxinspector.newGpxFile"
+                 label="New GPX File"
+                 style="push">
+           </command>
+           <command
+                 commandId="net.kenevans.gpxinspector.openGpxFile"
+                 icon="icons/GPXInspector16.png"
+                 label="Open GPX File..."
+                 style="push">
+           </command>
+           <command
+                 commandId="net.kenevans.gpxinspector.save"
+                 label="Save Selected GPX Files..."
+                 style="push">
+           </command>
+           <separator
+                 name="separator1"
+                 visible="true">
+           </separator>
+           <command
+                 commandId="net.kenevans.gpxinspector.openGpxFileGroup"
+                 label="Open GPX File Group..."
+                 style="push">
+           </command>
+           <separator
+                 name="separator2"
+                 visible="true">
+           </separator>
+           <command
+                 commandId="net.kenevans.gpxinspector.saveKml"
+                icon="icons/ge16.png"
+                 label="Save KML..."
+                 style="push">
+           </command>
+           <separator
+                 name="separator3"
+                 visible="true">
+           </separator>
+           <command
+                 commandId="net.kenevans.gpxinspector.findNear"
+                 label="Find Near..."
+                 style="push">
+           </command>
+           <command
+                 commandId="net.kenevans.gpxinspector.findFilesNear"
+                 label="Find Files Near..."
+                 style="push">
+           </command>
+           <separator
+                 name="separator4"
+                 visible="true">
+           </separator>
+           <command
+                 commandId="org.eclipse.ui.file.exit"
+                 label="Exit">
+           </command>
+           <separator
+                  name="additions"
+                  visible="true">
+           </separator>
+         </menu>
+         <menu
+               label="Window">
+           <command
+                  commandId="org.eclipse.ui.window.preferences"
+                  label="Preferences">
+           </command>
+         </menu>
+         <menu
+               label="Help">
+           <command
+                  commandId="org.eclipse.ui.help.helpContents"
+                  label="Help Contents">
+           </command>
+           <command
+                  commandId="org.eclipse.ui.help.aboutAction"
+                  label="About GPX Inspector">
+           </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
             locationURI="menu:net.kenevans.gpxinspector.gpxView?after=additions">
          <separator
                name="separator1"
@@ -189,6 +274,49 @@
             <visibleWhen
                   checkEnabled="true">
             </visibleWhen>
+         </command>
+         <separator
+               name="additions"
+               visible="true">
+         </separator>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:net.kenevans.gpxinspector.gpxView?after=additions">
+         <command
+               commandId="net.kenevans.gpxinspector.openGpxFile"
+               icon="icons/GPXInspector16.png"
+               label="Open GPX File..."
+               style="push">
+         </command>
+         <command
+               icon="icons/remove.gif"
+               label="Remove"
+               commandId="net.kenevans.gpxinspector.remove">
+                style="push">
+         </command>
+         <command
+               commandId="net.kenevans.gpxinspector.removeAll"
+               icon="icons/removeAll.gif"
+               label="Remove All"
+               style="push">
+         </command>
+         <command
+               icon="icons/expandall.gif"
+               label="Expand Level"
+               commandId="net.kenevans.gpxinspector.expand">
+               style="push">
+         </command>
+         <command
+               icon="icons/collapseall.gif"
+               label="Collapse Level"
+               commandId="net.kenevans.gpxinspector.collapse">
+               style="push">
+         </command>
+         <command
+               commandId="net.kenevans.gpxinspector.saveKml"
+               icon="icons/ge16.png"
+               label="Save KML..."
+               style="push">
          </command>
          <separator
                name="additions"
@@ -578,192 +706,6 @@
                      </count>
                   </with>
             </visibleWhen>
-         </command>
-         <separator
-               name="additions"
-               visible="true">
-         </separator>
-      </menuContribution>
-      <menuContribution
-            locationURI="toolbar:net.kenevans.gpxinspector.gpxView?after=additions">
-         <command
-               commandId="net.kenevans.gpxinspector.openGpxFile"
-               icon="icons/GPXInspector16.png"
-               label="Open GPX File..."
-               style="push">
-         </command>
-         <command
-               icon="icons/remove.gif"
-               label="Remove"
-               commandId="net.kenevans.gpxinspector.remove">
-                style="push">
-         </command>
-         <command
-               commandId="net.kenevans.gpxinspector.removeAll"
-               icon="icons/removeAll.gif"
-               label="Remove All"
-               style="push">
-         </command>
-         <command
-               icon="icons/expandall.gif"
-               label="Expand Level"
-               commandId="net.kenevans.gpxinspector.expand">
-               style="push">
-         </command>
-         <command
-               icon="icons/collapseall.gif"
-               label="Collapse Level"
-               commandId="net.kenevans.gpxinspector.collapse">
-               style="push">
-         </command>
-         <command
-               commandId="net.kenevans.gpxinspector.saveKml"
-               icon="icons/ge16.png"
-               label="Save KML..."
-               style="push">
-         </command>
-         <separator
-               name="additions"
-               visible="true">
-         </separator>
-      </menuContribution>
-      <menuContribution
-            locationURI="menu:org.eclipse.ui.main.menu">
-         <menu
-               label="File">
-         <command
-               commandId="net.kenevans.gpxinspector.newGpxFile"
-               label="New GPX File"
-               style="push">
-         </command>
-         <command
-               commandId="net.kenevans.gpxinspector.openGpxFile"
-               icon="icons/GPXInspector16.png"
-               label="Open GPX File..."
-               style="push">
-         </command>
-         <command
-               commandId="net.kenevans.gpxinspector.save"
-               label="Save Selected GPX Files..."
-               style="push">
-         </command>
-         <separator
-               name="separator1"
-               visible="true">
-         </separator>
-         <command
-               commandId="net.kenevans.gpxinspector.openGpxFileGroup"
-               label="Open GPX File Group..."
-               style="push">
-         </command>
-         <separator
-               name="separator2"
-               visible="true">
-         </separator>
-         <command
-               commandId="net.kenevans.gpxinspector.saveKml"
-               icon="icons/ge16.png"
-               label="Save KML..."
-               style="push">
-         </command>
-         <separator
-               name="separator3"
-               visible="true">
-         </separator>
-         <command
-               commandId="net.kenevans.gpxinspector.findNear"
-               label="Find Near..."
-               style="push">
-         </command>
-         <command
-               commandId="net.kenevans.gpxinspector.findFilesNear"
-               label="Find Files Near..."
-               style="push">
-         </command>
-         <separator
-               name="separator4"
-               visible="true">
-         </separator>
-         <command
-               commandId="org.eclipse.ui.file.exit"
-               label="Exit">
-         </command>
-         <separator
-               name="additions"
-               visible="true">
-         </separator>
-         </menu>
-         <menu
-               label="Window">
-           <command
-                  commandId="org.eclipse.ui.views.showView"
-                  label="Show View">
-           </command>
-         <menu
-               label="Perspective">
-            <command
-                  commandId="org.eclipse.ui.perspectives.showPerspective"
-                  label="Open Perspective">
-           </command>
-           <separator
-                  name="separator1"
-                  visible="true">
-           </separator>
-           <command
-                  commandId="org.eclipse.ui.window.customizePerspective"
-                  label="Customize Perspective...">
-           </command>
-           <command
-                  commandId="org.eclipse.ui.window.savePerspective"
-                  label="Save Perspective As...">
-           </command>
-           <command
-                  commandId="org.eclipse.ui.window.resetPerspective"
-                  label="Reset Perspective...">
-           </command>
-           <command
-                  commandId="org.eclipse.ui.window.closePerspective"
-                  label="Close Perspective">
-           </command>
-           <command
-                  commandId="org.eclipse.ui.window.closeAllPerspectives"
-                  label="Close All Perspectives">
-           </command>
-         </menu>
-           <separator
-                  name="separator1"
-                  visible="true">
-           </separator>
-            <command
-                  commandId="org.eclipse.ui.window.preferences"
-                  label="Preferences">
-           </command>
-         </menu>
-         <menu
-               label="Help">
-           <command
-                  commandId="org.eclipse.ui.help.helpContents"
-                  label="Help Contents">
-            </command>
-          <command
-                  commandId="org.eclipse.ui.help.aboutAction"
-                  label="About GPX Inspector">
-            </command>
-         </menu>
-      </menuContribution>
-      <menuContribution
-            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
-         <command
-               commandId="net.kenevans.gpxinspector.openGpxFile"
-               icon="icons/GPXInspector16.png"
-               label="Open GPX File..."
-               style="push">
-         </command>
-         <command
-               commandId="net.kenevans.gpxinspector.saveKml"
-               icon="icons/ge16.png"
-               label="Save KML..."
-               style="push">
          </command>
          <separator
                name="additions"
