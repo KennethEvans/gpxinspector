@@ -3,6 +3,8 @@ package net.kenevans.gpxinspector.model;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.xml.datatype.XMLGregorianCalendar;
+
 import org.eclipse.swt.widgets.Display;
 
 import net.kenevans.gpxinspector.ui.WptInfoDialog;
@@ -114,10 +116,19 @@ public class GpxWaypointModel extends GpxModel implements IGpxElementConstants
         String name = waypoint.getName();
         // Make a label for trackpoints without a name
         if((parent instanceof GpxTrackSegmentModel) && name == null) {
-            String latlon = "";
+            String info = "";
             try {
-                latlon = String.format(": %.6f, %6f", waypoint.getLat(),
+                info = String.format(": %.6f, %6f", waypoint.getLat(),
                     waypoint.getLon());
+            } catch(Exception ex) {
+                // Do nothing
+            }
+            try {
+            	XMLGregorianCalendar time = waypoint.getTime();
+            	if(info.length() != 0) {
+            		info += ", ";
+            	}
+            	info += time;
             } catch(Exception ex) {
                 // Do nothing
             }
@@ -126,12 +137,12 @@ public class GpxWaypointModel extends GpxModel implements IGpxElementConstants
             if(waypointModels != null) {
                 int index = waypointModels.indexOf(this);
                 if(index == -1) {
-                    return "[Point ?" + latlon + "]";
+                    return "[Point ?" + info + "]";
                 } else {
-                    return "[Point " + (index + 1) + latlon + "]";
+                    return "[Point " + (index + 1) + info + "]";
                 }
             } else {
-                return "[Point ??" + latlon + "]";
+                return "[Point ??" + info + "]";
             }
         }
         return name;
