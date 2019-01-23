@@ -116,24 +116,6 @@ public class GpxView extends ViewPart implements IPreferenceConstants
      */
     private boolean showSelectionText = false;
 
-    // private static String[] INITIAL_FILES = {
-    // // "C:/Users/evans/Documents/GPSLink/AAA.gpx",
-    // "C:/Users/evans/Documents/GPSLink/CabinWaypoints.gpx",
-    // "C:/Users/evans/Documents/GPSLink/CM2001.gpx",
-    // "C:/Users/evans/Documents/GPSLink/CM2002.gpx",
-    // "C:/Users/evans/Documents/GPSLink/CM2003.gpx",
-    // "C:/Users/evans/Documents/GPSLink/CM2004.gpx",
-    // "C:/Users/evans/Documents/GPSLink/CM2005.gpx",
-    // "C:/Users/evans/Documents/GPSLink/CM2006.gpx",
-    // "C:/Users/evans/Documents/GPSLink/CM2007.gpx",
-    // "C:/Users/evans/Documents/GPSLink/CM2005.gpx",
-    // "C:/Users/evans/Documents/GPSLink/CM2008.gpx",
-    // "C:/Users/evans/Documents/GPSLink/CM2009.gpx",
-    // "C:/Users/evans/Documents/GPSLink/CM2010.gpx",
-    // // "C:/Users/evans/Documents/GPSLink/M082010.gpx",
-    // // "C:/Users/evans/Documents/GPSLink/Segmented.gpx",
-    // };
-
     /** Used to specify the task to do for a selection location */
     public static enum Task {
         SORT, REVERSE, NEWFILE, NEWTRK, NEWSEG, NEWRTE, NEWWPT
