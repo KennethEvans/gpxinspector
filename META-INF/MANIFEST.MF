@@ -16,8 +16,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 Export-Package: net.kenevans.gpx10,
- net.kenevans.gpxcombined,
- net.kenevans.gpxcombined.parser,
  net.kenevans.gpxinspector.converters,
  net.kenevans.gpxinspector.handlers,
  net.kenevans.gpxinspector.kml,

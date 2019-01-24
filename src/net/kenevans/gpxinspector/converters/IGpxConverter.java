@@ -23,6 +23,13 @@ public interface IGpxConverter
      *      extensions)
      */
     public String getFilterExtensions();
+    
+    /**
+     * Returns the preferred extension (without the dot) for this converter.
+     * 
+     * @return
+     */
+    public String getPreferredExtension();
 
     /**
      * Returns whether this converter supports reading for the given file name.
