@@ -7,9 +7,9 @@ import org.eclipse.swt.widgets.Display;
 
 import net.kenevans.gpxinspector.ui.TrksegInfoDialog;
 import net.kenevans.gpxinspector.utils.SWTUtils;
-import net.kenevans.gpxtrackpointextensionsv1.TrksegType;
-import net.kenevans.gpxtrackpointextensionsv1.WptType;
-import net.kenevans.gpxtrackpointextensionsv1.parser.GPXClone;
+import net.kenevans.gpxtrackpointextensionv2.TrksegType;
+import net.kenevans.gpxtrackpointextensionv2.WptType;
+import net.kenevans.gpxtrackpointextensionv2.parser.GPXClone;
 
 /*
  * Created on Dec 07, 2010

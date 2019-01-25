@@ -26,10 +26,10 @@ import net.kenevans.gpxinspector.utils.LabeledList;
 import net.kenevans.gpxinspector.utils.LabeledText;
 import net.kenevans.gpxinspector.utils.SWTUtils;
 import net.kenevans.gpxinspector.utils.TrackStat;
-import net.kenevans.gpxtrackpointextensionsv1.ExtensionsType;
-import net.kenevans.gpxtrackpointextensionsv1.TrkType;
-import net.kenevans.gpxtrackpointextensionsv1.TrksegType;
-import net.kenevans.gpxtrackpointextensionsv1.WptType;
+import net.kenevans.gpxtrackpointextensionv2.ExtensionsType;
+import net.kenevans.gpxtrackpointextensionv2.TrkType;
+import net.kenevans.gpxtrackpointextensionv2.TrksegType;
+import net.kenevans.gpxtrackpointextensionv2.WptType;
 
 /*
  * Created on Aug 23, 2010

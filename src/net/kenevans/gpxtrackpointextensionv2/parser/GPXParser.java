@@ -1,4 +1,4 @@
-package net.kenevans.gpxtrackpointextensionsv1.parser;
+package net.kenevans.gpxtrackpointextensionv2.parser;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -23,17 +23,17 @@ import net.kenevans.gpx10.Gpx.Trk;
 import net.kenevans.gpx10.Gpx.Trk.Trkseg;
 import net.kenevans.gpx10.Gpx.Trk.Trkseg.Trkpt;
 import net.kenevans.gpx10.Gpx.Wpt;
-import net.kenevans.gpxtrackpointextensionsv1.BoundsType;
-import net.kenevans.gpxtrackpointextensionsv1.EmailType;
-import net.kenevans.gpxtrackpointextensionsv1.ExtensionsType;
-import net.kenevans.gpxtrackpointextensionsv1.GpxType;
-import net.kenevans.gpxtrackpointextensionsv1.MetadataType;
-import net.kenevans.gpxtrackpointextensionsv1.PersonType;
-import net.kenevans.gpxtrackpointextensionsv1.RteType;
-import net.kenevans.gpxtrackpointextensionsv1.TrackPointExtensionT;
-import net.kenevans.gpxtrackpointextensionsv1.TrkType;
-import net.kenevans.gpxtrackpointextensionsv1.TrksegType;
-import net.kenevans.gpxtrackpointextensionsv1.WptType;
+import net.kenevans.gpxtrackpointextensionv2.BoundsType;
+import net.kenevans.gpxtrackpointextensionv2.EmailType;
+import net.kenevans.gpxtrackpointextensionv2.ExtensionsType;
+import net.kenevans.gpxtrackpointextensionv2.GpxType;
+import net.kenevans.gpxtrackpointextensionv2.MetadataType;
+import net.kenevans.gpxtrackpointextensionv2.PersonType;
+import net.kenevans.gpxtrackpointextensionv2.RteType;
+import net.kenevans.gpxtrackpointextensionv2.TrackPointExtensionT;
+import net.kenevans.gpxtrackpointextensionv2.TrkType;
+import net.kenevans.gpxtrackpointextensionv2.TrksegType;
+import net.kenevans.gpxtrackpointextensionv2.WptType;
 
 /*
  * Created on Aug 19, 2010
@@ -47,7 +47,7 @@ public class GPXParser
     // "C:/Users/evans/Documents/GPSLink/CM2008.gpx";
     private static String TEST_FILE = "C:/Users/evans/Documents/GPSLink/STL/track2015-03-14-Walking-Messenger-Marsh-1719934-Combined.gpx";
     /** This is the package specified when XJC was run. */
-    private static String GPX_TRACKPOINTEXTENSIONSV1_PACKAGE = "net.kenevans.gpxtrackpointextensionsv1";
+    private static String GPX_TRACKPOINTEXTENSIONV2_PACKAGE = "net.kenevans.gpxtrackpointextensionv2";
     /** This is the GPX 1.0 package. */
     private static String GPX_10_PACKAGE = "net.kenevans.gpx10";
 
@@ -85,15 +85,17 @@ public class GPXParser
             GpxType.class, gpx);
         // Create a context
         JAXBContext jc = JAXBContext
-            .newInstance(GPX_TRACKPOINTEXTENSIONSV1_PACKAGE);
+            .newInstance(GPX_TRACKPOINTEXTENSIONV2_PACKAGE);
         // Create a marshaller
         Marshaller marshaller = jc.createMarshaller();
         // Set it to be formatted, otherwise it is one long line
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
         // Need to set the schema location to pass Xerces 3.1.1 SaxCount
-        marshaller
-            .setProperty(Marshaller.JAXB_SCHEMA_LOCATION,
-                "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd");
+        marshaller.setProperty(Marshaller.JAXB_SCHEMA_LOCATION,
+            "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd");
+        // Set the Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION
+        marshaller.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION,
+            "https://www.garmin.com/xmlschemas/TrackPointExtensionv2.xsd");
         // Marshal
         marshaller.marshal(root, file);
     }
@@ -121,16 +123,15 @@ public class GPXParser
     public static GpxType parse(File file) throws JAXBException {
         GpxType gpx = null;
         JAXBContext jc = JAXBContext
-            .newInstance(GPX_TRACKPOINTEXTENSIONSV1_PACKAGE);
+            .newInstance(GPX_TRACKPOINTEXTENSIONV2_PACKAGE);
         Unmarshaller unmarshaller = jc.createUnmarshaller();
         try {
             JAXBElement<GpxType> root = (JAXBElement<GpxType>)unmarshaller
                 .unmarshal(file);
             gpx = root.getValue();
         } catch(JAXBException ex) {
-            if(ex.getMessage() != null
-                && ex.getMessage()
-                    .contains("http://www.topografix.com/GPX/1/0")) {
+            if(ex.getMessage() != null && ex.getMessage()
+                .contains("http://www.topografix.com/GPX/1/0")) {
                 // Is a GPX 1.0 file
                 Gpx gpx10 = parse10(file);
                 if(gpx10 != null) {
@@ -518,20 +519,20 @@ public class GPXParser
                     System.out.println("      ele=" + ele);
                     // See if there is an extension
                     tpExt = trackpoint.getExtensions();
-                    System.out.println("      Trackpoint extensions " + j + "="
-                        + tpExt);
+                    System.out.println(
+                        "      Trackpoint extensions " + j + "=" + tpExt);
                     if(tpExt != null) {
                         tpObjs = tpExt.getAny();
                         for(int i = 0; i < tpObjs.size(); i++) {
                             tpObj = tpObjs.get(i);
                             System.out
-                                .println("        Trackpoint extension obj "
-                                    + i + ": " + tpObj);
+                                .println("        Trackpoint extension obj " + i
+                                    + ": " + tpObj);
                             trackPointExt = null;
                             if(tpObj instanceof JAXBElement<?>) {
                                 JAXBElement<?> element = (JAXBElement<?>)tpObj;
-                                if(element != null
-                                    && (element.getValue() instanceof TrackPointExtensionT)) {
+                                if(element != null && (element
+                                    .getValue() instanceof TrackPointExtensionT)) {
                                     trackPointExt = (TrackPointExtensionT)element
                                         .getValue();
                                 }

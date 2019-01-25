@@ -7,9 +7,9 @@ import org.eclipse.swt.widgets.Display;
 
 import net.kenevans.gpxinspector.ui.RteInfoDialog;
 import net.kenevans.gpxinspector.utils.SWTUtils;
-import net.kenevans.gpxtrackpointextensionsv1.RteType;
-import net.kenevans.gpxtrackpointextensionsv1.WptType;
-import net.kenevans.gpxtrackpointextensionsv1.parser.GPXClone;
+import net.kenevans.gpxtrackpointextensionv2.RteType;
+import net.kenevans.gpxtrackpointextensionv2.WptType;
+import net.kenevans.gpxtrackpointextensionv2.parser.GPXClone;
 
 /*
  * Created on Dec 06, 2010

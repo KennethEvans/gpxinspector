@@ -2,9 +2,9 @@ package net.kenevans.gpxinspector.ui;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import net.kenevans.gpxtrackpointextensionsv1.ExtensionsType;
-import net.kenevans.gpxtrackpointextensionsv1.TrksegType;
-import net.kenevans.gpxtrackpointextensionsv1.WptType;
+import net.kenevans.gpxtrackpointextensionv2.ExtensionsType;
+import net.kenevans.gpxtrackpointextensionv2.TrksegType;
+import net.kenevans.gpxtrackpointextensionv2.WptType;
 import net.kenevans.gpxinspector.model.GpxTrackModel;
 import net.kenevans.gpxinspector.model.GpxTrackSegmentModel;
 import net.kenevans.gpxinspector.utils.GpxUtils;

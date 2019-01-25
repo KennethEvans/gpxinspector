@@ -1,4 +1,4 @@
-package net.kenevans.gpxtrackpointextensionsv1.parser;
+package net.kenevans.gpxtrackpointextensionv2.parser;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -6,20 +6,22 @@ import java.util.List;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import net.kenevans.gpxtrackpointextensionsv1.BoundsType;
-import net.kenevans.gpxtrackpointextensionsv1.CopyrightType;
-import net.kenevans.gpxtrackpointextensionsv1.EmailType;
-import net.kenevans.gpxtrackpointextensionsv1.ExtensionsType;
-import net.kenevans.gpxtrackpointextensionsv1.GpxType;
-import net.kenevans.gpxtrackpointextensionsv1.LinkType;
-import net.kenevans.gpxtrackpointextensionsv1.MetadataType;
-import net.kenevans.gpxtrackpointextensionsv1.PersonType;
-import net.kenevans.gpxtrackpointextensionsv1.PtType;
-import net.kenevans.gpxtrackpointextensionsv1.PtsegType;
-import net.kenevans.gpxtrackpointextensionsv1.RteType;
-import net.kenevans.gpxtrackpointextensionsv1.TrkType;
-import net.kenevans.gpxtrackpointextensionsv1.TrksegType;
-import net.kenevans.gpxtrackpointextensionsv1.WptType;
+import net.kenevans.gpxtrackpointextensionv2.BoundsType;
+import net.kenevans.gpxtrackpointextensionv2.CopyrightType;
+import net.kenevans.gpxtrackpointextensionv2.EmailType;
+import net.kenevans.gpxtrackpointextensionv2.ExtensionsT;
+import net.kenevans.gpxtrackpointextensionv2.ExtensionsType;
+import net.kenevans.gpxtrackpointextensionv2.GpxType;
+import net.kenevans.gpxtrackpointextensionv2.LinkType;
+import net.kenevans.gpxtrackpointextensionv2.MetadataType;
+import net.kenevans.gpxtrackpointextensionv2.PersonType;
+import net.kenevans.gpxtrackpointextensionv2.PtType;
+import net.kenevans.gpxtrackpointextensionv2.PtsegType;
+import net.kenevans.gpxtrackpointextensionv2.RteType;
+import net.kenevans.gpxtrackpointextensionv2.TrackPointExtensionT;
+import net.kenevans.gpxtrackpointextensionv2.TrkType;
+import net.kenevans.gpxtrackpointextensionv2.TrksegType;
+import net.kenevans.gpxtrackpointextensionv2.WptType;
 
 /*
  * Created on Nov 29, 2010
@@ -116,6 +118,46 @@ public class GPXClone
         // FIXME note that objects will not be cloned, just copied. See
         // clone(Object).
         clone(src.getAny(), dst.getAny());
+        return dst;
+    }
+
+    /**
+     * Creates a clone of the given ExtensionsT.
+     * 
+     * @param src
+     * @return
+     */
+    public static ExtensionsT clone(ExtensionsT src) {
+        if(src == null) {
+            return null;
+        }
+        ExtensionsT dst = new ExtensionsT();
+        // FIXME note that objects will not be cloned, just copied. See
+        // clone(Object).
+        clone(src.getAny(), dst.getAny());
+        return dst;
+    }
+
+    /**
+     * Creates a clone of the given TrackPointExtensionT.
+     * 
+     * @param src
+     * @return
+     */
+    public static TrackPointExtensionT clone(TrackPointExtensionT src) {
+        if(src == null) {
+            return null;
+        }
+        TrackPointExtensionT dst = new TrackPointExtensionT();
+        dst.setBearing(src.getBearing());
+        dst.setCourse(src.getCourse());
+        dst.setExtensions(clone(src.getExtensions()));
+        dst.setAtemp(src.getAtemp());
+        dst.setCad(src.getCad());
+        dst.setDepth(src.getDepth());
+        dst.setHr(src.getHr());
+        dst.setSpeed(src.getSpeed());
+        dst.setWtemp(src.getWtemp());
         return dst;
     }
 
@@ -413,7 +455,7 @@ public class GPXClone
     }
 
     /**
-     * Creates a clone of the given XMLGregorianCalendar.
+     * // * Creates a clone of the given XMLGregorianCalendar.
      * 
      * @param src
      * @return

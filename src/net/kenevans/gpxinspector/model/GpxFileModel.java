@@ -14,12 +14,12 @@ import net.kenevans.gpxinspector.ui.FileInfoDialog;
 import net.kenevans.gpxinspector.ui.SaveFilesDialog;
 import net.kenevans.gpxinspector.utils.GpxException;
 import net.kenevans.gpxinspector.utils.SWTUtils;
-import net.kenevans.gpxtrackpointextensionsv1.GpxType;
-import net.kenevans.gpxtrackpointextensionsv1.RteType;
-import net.kenevans.gpxtrackpointextensionsv1.TrkType;
-import net.kenevans.gpxtrackpointextensionsv1.TrksegType;
-import net.kenevans.gpxtrackpointextensionsv1.WptType;
-import net.kenevans.gpxtrackpointextensionsv1.parser.GPXClone;
+import net.kenevans.gpxtrackpointextensionv2.GpxType;
+import net.kenevans.gpxtrackpointextensionv2.RteType;
+import net.kenevans.gpxtrackpointextensionv2.TrkType;
+import net.kenevans.gpxtrackpointextensionv2.TrksegType;
+import net.kenevans.gpxtrackpointextensionv2.WptType;
+import net.kenevans.gpxtrackpointextensionv2.parser.GPXClone;
 
 /*
  * Created on Aug 22, 2010

@@ -3,8 +3,8 @@ package net.kenevans.gpxinspector.converters;
 import java.io.File;
 
 import net.kenevans.gpxinspector.utils.SWTUtils;
-import net.kenevans.gpxtrackpointextensionsv1.GpxType;
-import net.kenevans.gpxtrackpointextensionsv1.parser.GPXParser;
+import net.kenevans.gpxtrackpointextensionv2.GpxType;
+import net.kenevans.gpxtrackpointextensionv2.parser.GPXParser;
 
 /*
  * Created on May 11, 2011

@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.List;
 
 import net.kenevans.gpxinspector.plugin.Activator;
-import net.kenevans.gpxtrackpointextensionsv1.GpxType;
+import net.kenevans.gpxtrackpointextensionv2.GpxType;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 

@@ -27,8 +27,8 @@ Export-Package: net.kenevans.gpx10,
  net.kenevans.gpxinspector.utils,
  net.kenevans.gpxinspector.utils.find,
  net.kenevans.gpxinspector.views,
- net.kenevans.gpxtrackpointextensionsv1,
- net.kenevans.gpxtrackpointextensionsv1.parser
+ net.kenevans.gpxtrackpointextensionv2,
+ net.kenevans.gpxtrackpointextensionv2.parser
 Eclipse-BundleShape: dir
 Bundle-ClassPath: JavaAPIforKml.jar,
  commons-io-2.0.1.jar,
