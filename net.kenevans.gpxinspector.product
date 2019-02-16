@@ -60,10 +60,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
    <plugins>
       <plugin id="com.ibm.icu"/>
       <plugin id="javax.annotation"/>
-      <plugin id="javax.el"/>
       <plugin id="javax.inject"/>
-      <plugin id="javax.servlet"/>
-      <plugin id="javax.servlet.jsp"/>
       <plugin id="javax.xml"/>
       <plugin id="net.kenevans.gpxinspector"/>
       <plugin id="net.kenevans.gpxinspector.gpsl"/>
@@ -76,10 +73,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       <plugin id="org.apache.commons.jxpath"/>
       <plugin id="org.apache.commons.logging"/>
       <plugin id="org.apache.felix.scr"/>
-      <plugin id="org.apache.jasper.glassfish"/>
-      <plugin id="org.apache.lucene.analyzers-common"/>
-      <plugin id="org.apache.lucene.analyzers-smartcn"/>
-      <plugin id="org.apache.lucene.core"/>
       <plugin id="org.apache.xmlgraphics"/>
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
@@ -90,8 +83,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       <plugin id="org.eclipse.core.filesystem"/>
       <plugin id="org.eclipse.core.filesystem.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.core.jobs"/>
-      <plugin id="org.eclipse.core.net"/>
-      <plugin id="org.eclipse.core.net.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.core.resources"/>
       <plugin id="org.eclipse.core.resources.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.core.runtime"/>
@@ -125,11 +116,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       <plugin id="org.eclipse.equinox.common"/>
       <plugin id="org.eclipse.equinox.ds"/>
       <plugin id="org.eclipse.equinox.event"/>
-      <plugin id="org.eclipse.equinox.http.jetty"/>
-      <plugin id="org.eclipse.equinox.http.registry"/>
-      <plugin id="org.eclipse.equinox.http.servlet"/>
-      <plugin id="org.eclipse.equinox.jsp.jasper"/>
-      <plugin id="org.eclipse.equinox.jsp.jasper.registry"/>
       <plugin id="org.eclipse.equinox.p2.core"/>
       <plugin id="org.eclipse.equinox.p2.engine"/>
       <plugin id="org.eclipse.equinox.p2.metadata"/>
@@ -144,15 +130,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       <plugin id="org.eclipse.equinox.transforms.hook" fragment="true"/>
       <plugin id="org.eclipse.equinox.weaving.hook" fragment="true"/>
       <plugin id="org.eclipse.help"/>
-      <plugin id="org.eclipse.help.base"/>
-      <plugin id="org.eclipse.help.ui"/>
-      <plugin id="org.eclipse.help.webapp"/>
-      <plugin id="org.eclipse.jetty.http"/>
-      <plugin id="org.eclipse.jetty.io"/>
-      <plugin id="org.eclipse.jetty.security"/>
-      <plugin id="org.eclipse.jetty.server"/>
-      <plugin id="org.eclipse.jetty.servlet"/>
-      <plugin id="org.eclipse.jetty.util"/>
       <plugin id="org.eclipse.jface"/>
       <plugin id="org.eclipse.jface.databinding"/>
       <plugin id="org.eclipse.jface.text"/>
@@ -164,7 +141,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       <plugin id="org.eclipse.swt.win32.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.text"/>
       <plugin id="org.eclipse.ui"/>
-      <plugin id="org.eclipse.ui.forms"/>
       <plugin id="org.eclipse.ui.ide"/>
       <plugin id="org.eclipse.ui.win32" fragment="true"/>
       <plugin id="org.eclipse.ui.workbench"/>

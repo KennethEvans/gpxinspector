@@ -139,8 +139,9 @@
          <menu
                label="Help">
            <command
-                  commandId="org.eclipse.ui.help.helpContents"
-                  label="Help Contents">
+                 commandId="net.kenevans.gpxinspector.helpContents"
+                 label="Help Contents"
+                 style="push">
            </command>
            <command
                   commandId="org.eclipse.ui.help.aboutAction"
@@ -918,6 +919,12 @@
             id="net.kenevans.gpxinspector.mergeSegments"
             name="Merge Segments">
       </command>
+      <command
+            categoryId="net.kenevans.gpxinspector.category"
+            defaultHandler="net.kenevans.gpxinspector.handlers.HelpContentsHandler"
+            id="net.kenevans.gpxinspector.helpContents"
+            name="Help Contents...">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.preferencePages">
@@ -944,13 +951,6 @@
       <initializer
             class="net.kenevans.gpxinspector.preferences.PreferenceInitializer">
       </initializer>
-   </extension>
-   <extension
-         point="org.eclipse.help.toc">
-      <toc
-            file="toc.xml"
-            primary="true">
-      </toc>
    </extension>
    <extension
          point="org.eclipse.ui.bindings">
