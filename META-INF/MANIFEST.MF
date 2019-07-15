@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: GPX Inspector
 Bundle-SymbolicName: net.kenevans.gpxinspector;singleton:=true
-Bundle-Version: 1.4.0.0
+Bundle-Version: 1.4.1.0
 Bundle-Activator: net.kenevans.gpxinspector.plugin.Activator
 Bundle-Vendor: kenevans.net
 Require-Bundle: org.eclipse.ui,
@@ -16,7 +16,42 @@ Require-Bundle: org.eclipse.ui,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
-Export-Package: net.kenevans.gpx10,
+Export-Package: com.sun.istack,
+ com.sun.istack.localization,
+ com.sun.istack.logging,
+ com.sun.xml.bind,
+ com.sun.xml.bind.annotation,
+ com.sun.xml.bind.api,
+ com.sun.xml.bind.api.impl,
+ com.sun.xml.bind.marshaller,
+ com.sun.xml.bind.unmarshaller,
+ com.sun.xml.bind.util,
+ com.sun.xml.bind.v2,
+ com.sun.xml.bind.v2.bytecode,
+ com.sun.xml.bind.v2.model.annotation,
+ com.sun.xml.bind.v2.model.core,
+ com.sun.xml.bind.v2.model.impl,
+ com.sun.xml.bind.v2.model.nav,
+ com.sun.xml.bind.v2.model.runtime,
+ com.sun.xml.bind.v2.runtime,
+ com.sun.xml.bind.v2.runtime.output,
+ com.sun.xml.bind.v2.runtime.property,
+ com.sun.xml.bind.v2.runtime.reflect,
+ com.sun.xml.bind.v2.runtime.reflect.opt,
+ com.sun.xml.bind.v2.runtime.unmarshaller,
+ com.sun.xml.bind.v2.schemagen,
+ com.sun.xml.bind.v2.schemagen.episode,
+ com.sun.xml.bind.v2.schemagen.xmlschema,
+ com.sun.xml.bind.v2.util,
+ com.sun.xml.txw2,
+ com.sun.xml.txw2.annotation,
+ com.sun.xml.txw2.output,
+ de.micromata.opengis.kml.v_2_2_0,
+ de.micromata.opengis.kml.v_2_2_0.annotations,
+ de.micromata.opengis.kml.v_2_2_0.atom,
+ de.micromata.opengis.kml.v_2_2_0.gx,
+ de.micromata.opengis.kml.v_2_2_0.xal,
+ net.kenevans.gpx10,
  net.kenevans.gpxinspector.converters,
  net.kenevans.gpxinspector.handlers,
  net.kenevans.gpxinspector.kml,
@@ -29,7 +64,9 @@ Export-Package: net.kenevans.gpx10,
  net.kenevans.gpxinspector.utils.find,
  net.kenevans.gpxinspector.views,
  net.kenevans.gpxtrackpointextensionv2,
- net.kenevans.gpxtrackpointextensionv2.parser
+ net.kenevans.gpxtrackpointextensionv2.parser,
+ org.apache.commons.io,
+ org.apache.commons.io.comparator
 Eclipse-BundleShape: dir
 Bundle-ClassPath: JavaAPIforKml.jar,
  commons-io-2.0.1.jar,
