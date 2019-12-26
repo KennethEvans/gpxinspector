@@ -2,6 +2,7 @@ package net.kenevans.gpxinspector.plugin;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtension;
@@ -10,6 +11,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.resource.ResourceLocator;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -76,8 +78,8 @@ public class Activator extends AbstractUIPlugin
      * @param path the path
      * @return the image descriptor
      */
-    public static ImageDescriptor getImageDescriptor(String path) {
-        return imageDescriptorFromPlugin(PLUGIN_ID, path);
+    public static Optional<ImageDescriptor> getImageDescriptor(String path) {
+        return ResourceLocator.imageDescriptorFromBundle(PLUGIN_ID, path);
     }
 
     /**
