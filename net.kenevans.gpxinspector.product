@@ -14,8 +14,6 @@
    </configIni>
 
    <launcherArgs>
-      <vmArgs>-Djava.endorsed.dirs=./plugins/net.kenevans.gpxinspector_1.1.1.0
-      </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
    </launcherArgs>
