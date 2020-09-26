@@ -94,7 +94,7 @@ public class LabeledText
             return null;
         } else {
             try {
-                return new Integer(val);
+                return Integer.parseInt(val);
             } catch(Exception ex) {
                 String msg = "Failed to convert \"" + val + "\" to Integer";
                 SWTUtils.excMsg(msg, ex);

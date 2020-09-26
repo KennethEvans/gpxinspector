@@ -41,8 +41,10 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer
         }
         if(useConverters) {
             for(int i = 0; i < converters.size(); i++) {
-                if(converters.get(i).getFilterExtensions()
-                    .equals(D_PREFERRED_FILE_EXTENSION)) {
+                String filterExtensions = converters.get(i)
+                    .getFilterExtensions();
+                if(filterExtensions != null
+                    && filterExtensions.equals(D_PREFERRED_FILE_EXTENSION)) {
                     defaultIndex = i;
                 }
             }
@@ -74,8 +76,8 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer
         prefs.setDefault(P_TRK_COLOR_MODE, D_TRK_COLOR_MODE);
 
         prefs.setDefault(P_KML_PROMPT_TO_OVERWRITE, D_KML_PROMPT_TO_OVERWRITE);
-        prefs
-            .setDefault(P_KML_SEND_TO_GOOGLE_EARTH, D_KML_SEND_TO_GOOGLE_EARTH);
+        prefs.setDefault(P_KML_SEND_TO_GOOGLE_EARTH,
+            D_KML_SEND_TO_GOOGLE_EARTH);
     }
 
 }

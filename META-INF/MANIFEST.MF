@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: GPX Inspector
 Bundle-SymbolicName: net.kenevans.gpxinspector;singleton:=true
-Bundle-Version: 1.4.3.0
+Bundle-Version: 1.5.0.0
 Bundle-Activator: net.kenevans.gpxinspector.plugin.Activator
 Bundle-Vendor: kenevans.net
 Require-Bundle: org.eclipse.ui,
@@ -13,7 +13,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide,
  org.eclipse.equinox.event;bundle-version="1.5.500",
  org.apache.felix.scr;bundle-version="2.1.16"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 Export-Package: com.sun.istack,
@@ -70,6 +70,9 @@ Export-Package: com.sun.istack,
 Eclipse-BundleShape: dir
 Bundle-ClassPath: JavaAPIforKml.jar,
  commons-io-2.0.1.jar,
- jaxb-impl.jar,
+ jaxb-api-2.3.0.jar,
+ jaxb-core-2.3.0.jar,
+ jaxb-impl-2.3.3.jar,
+ activation-1.1.1.jar,
  .
 Automatic-Module-Name: net.kenevans.gpxinspector

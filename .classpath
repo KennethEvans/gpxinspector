@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry exported="true" kind="lib" path="jaxb-impl-2.3.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="activation-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="jaxb-api-2.3.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="jaxb-core-2.3.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="JavaAPIforKml.jar" sourcepath="JavaAPIforKml-sources.jar"/>
 	<classpathentry kind="lib" path="commons-io-2.0.1.jar" sourcepath="commons-io-2.0.1-sources.jar"/>
-	<classpathentry exported="true" kind="lib" path="jaxb-impl.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
