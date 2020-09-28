@@ -3,7 +3,6 @@
 	<classpathentry exported="true" kind="lib" path="jaxb-impl-2.3.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="activation-1.1.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="jaxb-api-2.3.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="jaxb-core-2.3.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="JavaAPIforKml.jar" sourcepath="JavaAPIforKml-sources.jar"/>

@@ -29,6 +29,7 @@ import net.kenevans.gpxtrackpointextensionv2.EmailType;
 import net.kenevans.gpxtrackpointextensionv2.ExtensionsType;
 import net.kenevans.gpxtrackpointextensionv2.GpxType;
 import net.kenevans.gpxtrackpointextensionv2.MetadataType;
+import net.kenevans.gpxtrackpointextensionv2.ObjectFactory;
 import net.kenevans.gpxtrackpointextensionv2.PersonType;
 import net.kenevans.gpxtrackpointextensionv2.RteType;
 import net.kenevans.gpxtrackpointextensionv2.TrackPointExtensionT;
@@ -152,7 +153,8 @@ public class GPXParser {
 	@SuppressWarnings("unchecked")
 	public static GpxType parse(File file) throws JAXBException {
 		GpxType gpx = null;
-		JAXBContext jc = JAXBContext.newInstance(GPX_TRACKPOINTEXTENSIONV2_PACKAGE);
+        ObjectFactory objectFactory = new ObjectFactory();
+		JAXBContext jc = JAXBContext.newInstance(objectFactory.getClass());
 		Unmarshaller unmarshaller = jc.createUnmarshaller();
 		try {
 			JAXBElement<GpxType> root = (JAXBElement<GpxType>) unmarshaller.unmarshal(file);
