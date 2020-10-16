@@ -23,6 +23,7 @@ import net.kenevans.gpxinspector.utils.SWTUtils;
 public abstract class GpxModel implements Comparable<GpxModel>
 {
     /** Specifies how a paste special is to be done. */
+    // TODO Implement REPLACE as different from AFTER
     public static enum PasteMode {
         BEGINNING, BEFORE, REPLACE, AFTER, END,
     };

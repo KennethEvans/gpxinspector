@@ -124,11 +124,11 @@ public class GpxWaypointModel extends GpxModel implements IGpxElementConstants
                 // Do nothing
             }
             try {
-            	XMLGregorianCalendar time = waypoint.getTime();
-            	if(info.length() != 0) {
-            		info += ", ";
-            	}
-            	info += time;
+                XMLGregorianCalendar time = waypoint.getTime();
+                if(info.length() != 0) {
+                    info += ", ";
+                }
+                info += time;
             } catch(Exception ex) {
                 // Do nothing
             }

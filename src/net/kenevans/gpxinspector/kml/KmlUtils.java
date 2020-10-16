@@ -765,6 +765,7 @@ public class KmlUtils implements IPreferenceConstants
      * @param documentName The name of the KML Document or null to not make a
      *            Document. There does not have to be a document if only a
      *            Placemark is used.
+     * @param name The name of the placemark.
      * @param lat The latitude.
      * @param lon The longitude.
      * @param ele The elevation.
@@ -808,6 +809,7 @@ public class KmlUtils implements IPreferenceConstants
      * @param documentName The name of the KML Document or null to not make a
      *            Document. There does not have to be a document if only a
      *            Placemark is used.
+     * @param name The name of the placemark.
      * @param lat The latitude.
      * @param lon The longitude.
      * @param ele The elevation.

@@ -17,7 +17,7 @@
          point="org.eclipse.ui.perspectives">
       <perspective
             class="net.kenevans.gpxinspector.perspectives.Perspective"
-            icon="icons/GPXInspector16.png"
+            icon="icons/GPXInspector16.old.png"
             id="net.kenevans.gpxinspector.perspective"
             name="Perspective">
       </perspective>
@@ -27,7 +27,7 @@
       <view
             category="net.kenevans.gpxinspector.category"
             class="net.kenevans.gpxinspector.views.GpxView"
-            icon="icons/GPXInspector16.png"
+            icon="icons/GPXInspector16.old.png"
             id="net.kenevans.gpxinspector.gpxView"
             name="GPX"
             restorable="true">
@@ -45,7 +45,7 @@
             name="GPX Inspector">
          <property
                name="windowImages"
-               value="icons/GPXInspector16.png,icons/GPXInspector32.png">
+               value="icons/GPXInspector16.old.png,icons/GPXInspector32.png">
          </property>
          <property
                name="appName"
@@ -74,7 +74,7 @@
            </command>
            <command
                  commandId="net.kenevans.gpxinspector.openGpxFile"
-                 icon="icons/GPXInspector16.png"
+                 icon="icons/GPXInspector16.old.png"
                  label="Open GPX File..."
                  style="push">
            </command>
@@ -244,7 +244,7 @@
          </separator>
          <command
                commandId="net.kenevans.gpxinspector.openGpxFile"
-               icon="icons/GPXInspector16.png"
+               icon="icons/GPXInspector16.old.png"
                label="Open GPX File..."
                style="push">
          </command>
@@ -285,7 +285,7 @@
             locationURI="toolbar:net.kenevans.gpxinspector.gpxView?after=additions">
          <command
                commandId="net.kenevans.gpxinspector.openGpxFile"
-               icon="icons/GPXInspector16.png"
+               icon="icons/GPXInspector16.old.png"
                label="Open GPX File..."
                style="push">
          </command>
@@ -575,7 +575,7 @@
          </separator>
          <command
                commandId="net.kenevans.gpxinspector.openGpxFile"
-               icon="icons/GPXInspector16.png"
+               icon="icons/GPXInspector16.old.png"
                label="Open GPX File..."
                style="push">
          </command>
