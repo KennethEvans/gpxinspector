@@ -9,6 +9,7 @@
 package net.kenevans.gpx10;
 
 import javax.xml.bind.annotation.XmlRegistry;
+
 import net.kenevans.gpx10.Gpx.Rte;
 import net.kenevans.gpx10.Gpx.Rte.Rtept;
 import net.kenevans.gpx10.Gpx.Trk;

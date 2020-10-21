@@ -1710,7 +1710,7 @@ public class GpxView extends ViewPart implements IPreferenceConstants {
 
 	/**
 	 * Implements cut. Copies items from the selection to the local clipboard then
-	 * re moves the selected items.
+	 * removes the selected items.
 	 */
 	private void cut() {
 		// First do copy
