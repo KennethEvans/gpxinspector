@@ -45,7 +45,7 @@
             name="GPX Inspector">
          <property
                name="windowImages"
-               value="icons/GPXInspector16.old.png,icons/GPXInspector32.png">
+               value="icons/GPXInspector16.png,icons/GPXInspector32.png">
          </property>
          <property
                name="appName"
